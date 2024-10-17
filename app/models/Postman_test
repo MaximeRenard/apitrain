@@ -1,0 +1,42 @@
+# POST http://127.0.0.1:8081/api/Athletes
+{
+	"FirstName" : "Maxime",
+	"LastName": "Renard",
+	"Address" : "stadium",
+	"City" : "Angers"
+}
+# {
+    "Athleteid": 2,
+    "LastName": "Renard",
+    "FirstName": "Max",
+    "Address": "stadium",
+    "City": "Angers"
+}
+# Get  all Athletes
+http://127.0.0.1:8081/api/Athletes/
+# Get specific athletes
+http://127.0.0.1:8083/api/Athletes/1/
+Warning define Athlete id
+{
+    "Athleteid": 1,
+    "LastName": "Renard",
+    "FirstName": "Maxime",
+    "Address": "stadium",
+    "City": "Angers"
+}
+# Update 
+http://127.0.0.1:8083/api/Athletes/2/
+{
+    "LastName": "Renard",
+    "FirstName": "Max200",
+    "Address": "stadium",
+    "City": "Angers"
+}
+
+
+# Delete by id 
+http://127.0.0.1:8085/api/Athletes/2/
+ok
+
+# All delete
+http://127.0.0.1:8089/api/Athletes/
