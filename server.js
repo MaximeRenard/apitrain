@@ -20,13 +20,13 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "We5come to apitrain application for runners." });
+  res.json({ message: "Welcome to apitrain application for runners." });
 });
 
 require("./app/routes/athlete.routes.js")(app);
 
 // set port, listen for requests process.env.PORT 
-const PORT =  process.env.PORT || 8089;
+const PORT =  process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
