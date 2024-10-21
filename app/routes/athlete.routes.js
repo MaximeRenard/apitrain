@@ -6,11 +6,11 @@ module.exports = app => {
   // Create a new Tutorial
   router.post("/", athletes.create);
 
-  // Retrieve all Athletes
-  router.get("/", athletes.findAll);
+  // Retrieve all Athletes of city
+  router.get("/city", athletes.findAllCity);
 
-  // Retrieve all published Athletes
-  router.get("/published", athletes.findAllPublished);
+  // Retrieve all Athletes of city
+  router.get("/Category", athletes.findAllCategory);
 
   // Retrieve a single Tutorial with id
   router.get("/:id", athletes.findOne);

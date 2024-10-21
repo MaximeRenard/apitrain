@@ -9,6 +9,7 @@ const connection = mysql.createConnection({
   database: dbConfig.DB
 });
 
+// Creataion in order
 // Database
 const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
         Clubsid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -38,6 +39,13 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
         ClubsID int,
         CONSTRAINT FK_club_race FOREIGN KEY (ClubsID) REFERENCES Clubs(ClubsID)
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
+
+const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes( 
+        Categoryid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        nameCategory varchar(5) NOT NULL,
+        descriptionCategory varchar(55) NOT NULL
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
+
 // SELECT DATE_FORMAT("2018-09-24", "%M %d %Y"); and DATE - format YYYY-MM-DD
 const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes( 
         Athleteid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -51,9 +59,22 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
         ClubsID int,
         FOREIGN KEY (ClubsID) REFERENCES Clubs(ClubsID),
         CoachID int,
-        FOREIGN KEY (CoachID) REFERENCES Coach(CoachID)
+        FOREIGN KEY (CoachID) REFERENCES Coach(CoachID),
+        Categoryid int(11) NOT NULL,
+        FOREIGN KEY (Categoryid) REFERENCES CategoryAthletes(Categoryid)
       
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
+
+const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace( 
+        Athleteid int(11) NOT NULL,
+        Raceid int(11) NOT NULL,
+        Timerace TIME NOT NULL,
+        FOREIGN KEY (Raceid) REFERENCES Race(RaceID),
+        FOREIGN KEY (Athleteid) REFERENCES Athletes(Athleteid)
+      
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
+
+
 
 // Create DB and connection
 
@@ -80,17 +101,26 @@ connection.connect(function(err) {
     if (err) throw err;
     console.log("Table Race created");
   });
+  // Create Table category
+  var category = tableCategory; 
+  connection.query(category, function (err, result) {
+    if (err) throw err;
+    console.log("Table Category created");
+  });
   // Create Table Athlete 
   var athlete = tableAthlete; 
   connection.query(athlete, function (err, result) {
     if (err) throw err;
     console.log("Table Athletes created");
   });
+  // Create Result race 
+  var raceresult = tableResult; 
+  connection.query(raceresult, function (err, result) {
+    if (err) throw err;
+    console.log("Table Athletes-Race created");
+  });
   console.log("All Table  are created or existed.");
 });
 
 
-
-
 module.exports = connection;
-

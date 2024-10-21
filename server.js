@@ -5,7 +5,7 @@ const cors = require("cors");
 
 // Api
 const app = express();
-// not use ? 
+// option servor connection
 var corsOptions = {
 	origin: "http://localhost:8080"
 };
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to apitrain application for runners." });
+  res.json({ message: "Welcome to apitrain application for runners and coach." });
 });
 
 require("./app/routes/athlete.routes.js")(app);

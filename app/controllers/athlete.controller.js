@@ -30,25 +30,25 @@ exports.create = (req, res) => {
 };
 
 // Retrieve all objects
-exports.findAll = (req, res) => {
+exports.findAllCity = (req, res) => {
   const city = req.query.city;
 
-  Athlete.getAll(city, (err, data) => {
+  Athlete.getAllCity(city, (err, data) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Athletes."
+          err.message || "Some error occurred while retrieving Athletes of city."
       });
     else res.send(data);
   });
 };
 
-exports.findAllPublished = (req, res) => {
-  Athlete.getAllPublished((err, data) => {
+exports.findAllCategory = (req, res) => {
+  Athlete.getAllCategory((err, data) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Athletes."
+          err.message || "Some error occurred while retrieving Athletes of category."
       });
     else res.send(data);
   });

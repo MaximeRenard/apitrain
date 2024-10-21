@@ -4,14 +4,28 @@ functions:
 */
 const sql = require("./db.js");
 
-// constructor
+
+
+
+
+// constructor of base
+
+// Athlete
 const Athlete = function(athlete) {
   this.LastName = athlete.LastName;
   this.FirstName = athlete.FirstName;
-  this.Address = athlete.Address;
+  this.Years = athlete.Years;
+  this.Weight = athlete.Weight;
+  this.height = athlete.height;
   this.City = athlete.City;
+  this.favoriteDistance = athlete.favoriteDistance;
+  this.ClubsID = athlete.ClubsID;
+  this.CoachID = athlete.CoachID;
+  this.Categoryid = athlete.Categoryid;
 };
 
+
+// Function for Athlete table      
 Athlete.create = (newAthlete, result) => {
   sql.query("INSERT INTO Athletes SET ?", newAthlete, (err, res) => {
     if (err) {
@@ -45,7 +59,7 @@ Athlete.findById = (id, result) => {
 };
 
 // Athletes of city
-Athlete.getAll = (city, result) => {
+Athlete.getAllCity = (city, result) => {
   let query = "SELECT * FROM Athletes";
 
   if (city) {
@@ -64,8 +78,8 @@ Athlete.getAll = (city, result) => {
   });
 };
 
-Athlete.getAllPublished = result => {
-  sql.query("SELECT * FROM Athletes WHERE LastName=true", (err, res) => {
+Athlete.getAllCategory = result => {
+  sql.query("SELECT * FROM Athletes WHERE Categoryid = 1", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
@@ -79,8 +93,12 @@ Athlete.getAllPublished = result => {
 
 Athlete.updateById = (id, athlete, result) => {
   sql.query(
-    "UPDATE Athletes SET LastName = ?, FirstName = ?, Address = ?, City = ? WHERE Athleteid = ?",
-    [athlete.LastName, athlete.FirstName, athlete.Address,athlete.City, id],
+    "UPDATE Athletes SET LastName = ?, FirstName = ?, Years = ?,Weight = ?, height = ?, City = ?, favoriteDistance = ? WHERE Athleteid = ?",
+    [athlete.LastName, athlete.FirstName, athlete.Years,athlete.Weight,athlete.height,athlete.City,athlete.favoriteDistance, id],
+  // No change in foreign key  
+  //this.ClubsID = athlete.ClubsID;
+  //this.CoachID = athlete.CoachID;
+  //this.Categoryid = athlete.Categoryid;
     (err, res) => {
       if (err) {
         console.log("error: ", err);

@@ -4,17 +4,19 @@ Node.js is a JavaScript-based platform for server-side and networking applicatio
 
 ## First table
 ### mysql --user=renard --password Athletes_base
-CREATE TABLE Athletes(
-			Athleteid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    		LastName varchar(20) NOT NULL,
-    		FirstName varchar(20)NOT NULL,
-    		Address varchar(255),
-    		City varchar(50) NOT NULL
-    		)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+Create database in connection
 ### mysql> SELECT * FROM Athletes;
 Empty set (0,02 sec)
 ### npm install express mysql2 cors --save
+### Connection and create new db
 ### Dvt PORT et create Modify table in server
+#### Note Ordre suppression to respect constraint
+mysql> DROP TABLE ResultAthletesRace;
+mysql> DROP TABLE Athletes;
+mysql> DROP TABLE Race;
+mysql> DROP TABLE CategoryAthletes
+mysql> DROP TABLE Coach;
+mysql> DROP TABLE Clubs;
 
 ### Authors : Maxime RENARD
 #### Date 09/10/24
