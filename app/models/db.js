@@ -10,7 +10,14 @@ const connection = mysql.createConnection({
 });
 
 // Creataion in order
+
 // Database
+const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes( 
+        Categoryid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        NameCategory varchar(20) NOT NULL,
+        DescriptionCategory varchar(55) NOT NULL
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
+
 const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
         Clubsid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         Name varchar(20) NOT NULL,
@@ -25,7 +32,7 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
         Years int(4) NOT NULL,
         City varchar(50) NOT NULL,
         Description varchar(255),
-        ClubsID int,
+        ClubsID int NOT NULL,
         CONSTRAINT FK_club FOREIGN KEY (ClubsID) REFERENCES Clubs(ClubsID)
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
 
@@ -36,15 +43,9 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
         Distance DOUBLE(4,1) NOT NULL,
         City varchar(50) NOT NULL,
         Description varchar(255),
-        ClubsID int,
+        ClubsID int NOT NULL,
         CONSTRAINT FK_club_race FOREIGN KEY (ClubsID) REFERENCES Clubs(ClubsID)
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
-
-const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes( 
-        Categoryid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        nameCategory varchar(5) NOT NULL,
-        descriptionCategory varchar(55) NOT NULL
-      )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
 
 // SELECT DATE_FORMAT("2018-09-24", "%M %d %Y"); and DATE - format YYYY-MM-DD
 const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes( 
@@ -52,13 +53,13 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
         LastName varchar(20) NOT NULL,
         FirstName varchar(20)NOT NULL,
         Years int(4) NOT NULL,
-        Weight float(2,1),
-        height float(2,2),
+        Weight FLOAT(5,2),
+        Height FLOAT(4,2),
         City varchar(50) NOT NULL,
-        favoriteDistance varchar(20),
-        ClubsID int,
+        FavoriteDistance varchar(20),
+        ClubsID int NOT NULL,
         FOREIGN KEY (ClubsID) REFERENCES Clubs(ClubsID),
-        CoachID int,
+        CoachID int NOT NULL,
         FOREIGN KEY (CoachID) REFERENCES Coach(CoachID),
         Categoryid int(11) NOT NULL,
         FOREIGN KEY (Categoryid) REFERENCES CategoryAthletes(Categoryid)
@@ -83,7 +84,13 @@ connection.connect(function(err) {
   if (err) throw err;
   console.log("Successfully connected to the database.");
   
-    // Create Table Club 
+  // Create Table category
+  var category = tableCategory; 
+  connection.query(category, function (err, result) {
+    if (err) throw err;
+    console.log("Table Category created");
+  });
+  // Create Table Club 
   var club = tableclub; 
   connection.query(club, function (err, result) {
     if (err) throw err;
@@ -101,12 +108,7 @@ connection.connect(function(err) {
     if (err) throw err;
     console.log("Table Race created");
   });
-  // Create Table category
-  var category = tableCategory; 
-  connection.query(category, function (err, result) {
-    if (err) throw err;
-    console.log("Table Category created");
-  });
+  
   // Create Table Athlete 
   var athlete = tableAthlete; 
   connection.query(athlete, function (err, result) {

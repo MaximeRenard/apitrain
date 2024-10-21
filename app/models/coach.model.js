@@ -12,3 +12,20 @@ const Coach = function(coach) {
   this.Description = coach.Description;
   this.ClubsID = coach.ClubsID;
 };
+
+// Function for coach table
+// Create Coach      
+Coach.create = (newCoach, result) => {
+  sql.query("INSERT INTO Coach SET ?", newCoach, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    console.log("created Coach: ", { id: res.insertId, ...newCoach });
+    result(null, { id: res.insertId, ...newCoach });
+  });
+};
+
+module.exports = Coach;

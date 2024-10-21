@@ -12,10 +12,17 @@ exports.create = (req, res) => {
 
   // Create a Athlete
   const athlete = new Athlete({
+    // Name of family
     LastName: req.body.LastName,
     FirstName: req.body.FirstName,
-    Address: req.body.Address,
-    City: req.body.City || false
+    Years: req.body.Years,
+    Weight: req.body.Weight || false,
+    Height: req.body.Height || false,
+    City: req.body.City,
+    FavoriteDistance: req.body.FavoriteDistance || false,
+    ClubsID : req.body.ClubsID,
+    CoachID : req.body.CoachID,
+    Categoryid : req.body.Categoryid
   });
 
   // Save Athlete in the database

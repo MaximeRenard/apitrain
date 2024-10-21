@@ -4,7 +4,7 @@ module.exports = app => {
   var router = require("express").Router();
 
   // Create a new Tutorial
-  router.post("/", athletes.create);
+  router.post("/create", athletes.create);
 
   // Retrieve all Athletes of city
   router.get("/city", athletes.findAllCity);
@@ -13,16 +13,18 @@ module.exports = app => {
   router.get("/Category", athletes.findAllCategory);
 
   // Retrieve a single Tutorial with id
-  router.get("/:id", athletes.findOne);
+  router.get("/view/:id", athletes.findOne);
 
   // Update a Tutorial with id
-  router.put("/:id", athletes.update);
+  router.put("/update/:id", athletes.update);
 
   // Delete a Tutorial with id
-  router.delete("/:id", athletes.delete);
+  router.delete("/delete/:id", athletes.delete);
 
   // Delete all Athletes
-  router.delete("/", athletes.deleteAll);
+  router.delete("/delete", athletes.deleteAll);
 
   app.use('/api/Athletes', router);
 };
+
+

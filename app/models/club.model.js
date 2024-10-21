@@ -11,3 +11,20 @@ const Club = function(club) {
   this.Address = club.Address;
   this.Description = club.Description;
 };
+
+// Function for Club table
+// Create club      
+Club.create = (newClub, result) => {
+  sql.query("INSERT INTO Clubs SET ?", newClub, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    console.log("created Club: ", { id: res.insertId, ...newClub });
+    result(null, { id: res.insertId, ...newClub });
+  });
+};
+
+module.exports = Club;

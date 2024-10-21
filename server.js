@@ -22,7 +22,13 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to apitrain application for runners and coach." });
 });
-
+// Category part
+require("./app/routes/category.routes.js")(app);
+// Club part
+require("./app/routes/club.routes.js")(app);
+// Coach part
+require("./app/routes/coach.routes.js")(app);
+// Athlete part
 require("./app/routes/athlete.routes.js")(app);
 
 // set port, listen for requests process.env.PORT 
