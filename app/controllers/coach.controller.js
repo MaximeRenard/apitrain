@@ -18,7 +18,7 @@ exports.create = (req, res) => {
     Years: req.body.Years,
     City: req.body.City,
     Description: req.body.Description,
-    ClubsID: req.body.ClubsID
+    Clubid: req.body.Clubid
   });
   
   // Save coach in the database

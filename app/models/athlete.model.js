@@ -19,8 +19,8 @@ const Athlete = function(athlete) {
   this.Height = athlete.Height;
   this.City = athlete.City;
   this.FavoriteDistance = athlete.FavoriteDistance;
-  this.ClubsID = athlete.ClubsID;
-  this.CoachID = athlete.CoachID;
+  this.Clubid = athlete.Clubid;
+  this.Coachid = athlete.Coachid;
   this.Categoryid = athlete.Categoryid;
 };
 
@@ -79,7 +79,7 @@ Athlete.getAllCity = (city, result) => {
 };
 
 Athlete.getAllCategory = result => {
-  sql.query("SELECT * FROM Athletes WHERE Categoryid = 1", (err, res) => {
+  sql.query("SELECT * FROM Athletes WHERE Categoryid = 3", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

@@ -20,8 +20,8 @@ exports.create = (req, res) => {
     Height: req.body.Height || false,
     City: req.body.City,
     FavoriteDistance: req.body.FavoriteDistance || false,
-    ClubsID : req.body.ClubsID,
-    CoachID : req.body.CoachID,
+    Clubid : req.body.Clubid,
+    Coachid : req.body.Coachid,
     Categoryid : req.body.Categoryid
   });
 

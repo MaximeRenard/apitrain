@@ -10,7 +10,7 @@ const Coach = function(coach) {
   this.Years = coach.Years;
   this.City = coach.City;
   this.Description = coach.Description;
-  this.ClubsID = coach.ClubsID;
+  this.Clubid = coach.Clubid;
 };
 
 // Function for coach table

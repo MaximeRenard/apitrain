@@ -19,7 +19,7 @@ const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes(
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
 
 const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
-        Clubsid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        Clubid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         Name varchar(20) NOT NULL,
         City varchar(50) NOT NULL,
         Address varchar(50),
@@ -32,8 +32,8 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
         Years int(4) NOT NULL,
         City varchar(50) NOT NULL,
         Description varchar(255),
-        ClubsID int NOT NULL,
-        CONSTRAINT FK_club FOREIGN KEY (ClubsID) REFERENCES Clubs(ClubsID)
+        Clubid int NOT NULL,
+        CONSTRAINT FK_club FOREIGN KEY (Clubid) REFERENCES Clubs(Clubid)
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
 
 const tablerace = `CREATE TABLE IF NOT EXISTS Race(
@@ -43,8 +43,8 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
         Distance DOUBLE(4,1) NOT NULL,
         City varchar(50) NOT NULL,
         Description varchar(255),
-        ClubsID int NOT NULL,
-        CONSTRAINT FK_club_race FOREIGN KEY (ClubsID) REFERENCES Clubs(ClubsID)
+        Clubid int NOT NULL,
+        CONSTRAINT FK_club_race FOREIGN KEY (Clubid) REFERENCES Clubs(Clubid)
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
 
 // SELECT DATE_FORMAT("2018-09-24", "%M %d %Y"); and DATE - format YYYY-MM-DD
@@ -57,10 +57,10 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
         Height FLOAT(4,2),
         City varchar(50) NOT NULL,
         FavoriteDistance varchar(20),
-        ClubsID int NOT NULL,
-        FOREIGN KEY (ClubsID) REFERENCES Clubs(ClubsID),
-        CoachID int NOT NULL,
-        FOREIGN KEY (CoachID) REFERENCES Coach(CoachID),
+        Clubid int NOT NULL,
+        FOREIGN KEY (Clubid) REFERENCES Clubs(Clubid),
+        Coachid int NOT NULL,
+        FOREIGN KEY (Coachid) REFERENCES Coach(Coachid),
         Categoryid int(11) NOT NULL,
         FOREIGN KEY (Categoryid) REFERENCES CategoryAthletes(Categoryid)
       
