@@ -1,13 +1,22 @@
-module.exports = app => {
-  const athletes = require("../controllers/athlete.controller.js");
+import http from "../http-common";
+  
+class AthletesDataService{
+  // get Id
+  get(id) {
+    return http.get(`/Athletes/${id}`);
+  }
+  // Create data
+  create(data) {
+    return http.post("/Athletes/create/", data);
+  }
+  getAll() {
+    return http.get("/Athletes/view/");
+  }
 
-  var router = require("express").Router();
-
-  // Create a new Tutorial
-  router.post("/create", athletes.create);
-
+}  
+/*
   // Retrieve all Athletes of city
-  router.get("/view/", athletes.findAllAthletes);
+  router.get("/city", athletes.findAllCity);
 
   // Retrieve all Athletes of city
   router.get("/Category", athletes.findAllCategory);
@@ -23,8 +32,6 @@ module.exports = app => {
 
   // Delete all Athletes
   router.delete("/delete", athletes.deleteAll);
+*/
 
-  app.use('/api/Athletes', router);
-};
-
-
+export default new AthletesDataService();

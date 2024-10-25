@@ -59,12 +59,11 @@ Athlete.findById = (id, result) => {
 };
 
 // Athletes of city
-Athlete.getAllCity = (city, result) => {
+//if (city) {
+  //  query += ` WHERE City LIKE '%${city}%'`;
+  //}
+Athlete.getAllAthletes = (city, result) => {
   let query = "SELECT * FROM Athletes";
-
-  if (city) {
-    query += ` WHERE City LIKE '%${city}%'`;
-  }
 
   sql.query(query, (err, res) => {
     if (err) {

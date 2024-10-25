@@ -37,10 +37,10 @@ exports.create = (req, res) => {
 };
 
 // Retrieve all objects
-exports.findAllCity = (req, res) => {
+exports.findAllAthletes = (req, res) => {
   const city = req.query.city;
 
-  Athlete.getAllCity(city, (err, data) => {
+  Athlete.getAllAthletes(city, (err, data) => {
     if (err)
       res.status(500).send({
         message:

@@ -7,7 +7,7 @@ const cors = require("cors");
 const app = express();
 // option servor connection
 var corsOptions = {
-	origin: "http://localhost:8080"
+	origin: "http://localhost:8080/api"
 };
 
 app.use(cors(corsOptions));
@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // simple route
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.json({ message: "Welcome to apitrain application for runners and coach." });
 });
 // Category part
