@@ -6,5 +6,5 @@ module.exports = app => {
   // Create a new Tutorial
   router.post("/create", clubs.create);
 
-  app.use('/api/Clubs', router);
+  app.use('/api', router);
 };

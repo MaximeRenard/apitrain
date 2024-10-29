@@ -9,11 +9,13 @@ class AthletesDataService{
   create(data) {
     return http.post("/Athletes/create/", data);
   }
+  // Get all athlete
   getAll() {
     return http.get("/Athletes/view/");
   }
 
 }  
+
 /*
   // Retrieve all Athletes of city
   router.get("/city", athletes.findAllCity);

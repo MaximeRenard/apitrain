@@ -2,7 +2,7 @@
 const express = require("express");
 //cors provides Express middleware to enable CORS with various option
 const cors = require("cors");
-
+const path = require('path');
 // Api
 const app = express();
 // option servor connection
@@ -22,6 +22,12 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/api", (req, res) => {
   res.json({ message: "Welcome to apitrain application for runners and coach." });
 });
+// sendFile will go here
+app.get('/api/Home/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+// Home part Welcome page 
+//require("./app/routes/home.routes.js")(app);
 // Category part
 require("./app/routes/category.routes.js")(app);
 // Club part

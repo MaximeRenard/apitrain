@@ -1,8 +1,14 @@
-import React, { Component } from "react";
+import React, { Component , useState, useEffect }  from "react";
 import AthletesDataService from "../services/Athlete.service";
 import { Link } from "react-router-dom";
+//new
+import { withRouter } from '../common/with-router';
 
-export default class AthletesList extends Component {
+
+
+// Class Exporté
+// sauf si export default class router
+class AthletesList extends Component {
   constructor(props) {
     super(props);
    
@@ -12,28 +18,35 @@ export default class AthletesList extends Component {
     
 
     this.state = {
-      Athletes: [2,3,4,5],
-      currentAthlete: 3,
+      Athletes: [],
+      currentAthlete: null,
       currentIndex: -1
     };
   }
+ 
 
   componentDidMount() {
     this.retrieveAthletes();
   }
 
   retrieveAthletes() {
+    
     AthletesDataService.getAll()
       .then(response => {
         this.setState({
           Athletes: response.data
         });
-        console.log(response.data);
+        console.log(response.data); 
       })
       .catch(e => {
         console.log(e);
       });
+      return "Sucesss";
   }
+  getData = async() => {
+       
+        await this.retrieveAthletes();
+  };
 
   refreshList() {
     this.retrieveAthletes();
@@ -59,8 +72,8 @@ export default class AthletesList extends Component {
       <div className="list row">
 	      <div className="col-md-6">
 	          <h4>Athletes List</h4>
-            // <p><strong>Get Athletes</strong></p>
-	          <ul className="list-group">
+              <p><strong>Get Athletes</strong></p>
+	            <ul className="list-group">
 	            {Athletes &&
 	              Athletes.map((athlete, index) => (
 	                <li
@@ -77,14 +90,15 @@ export default class AthletesList extends Component {
             </ul>
                   <button 
                     className="m-3 btn btn-sm btn-danger"
-                    onClick={this.refreshList}
+                    onClick={this.getData}
                   >
                     Get All
                 </button>
-	              
+                
 	      </div>  
      
       </div>
     );
   }
 }
+export default withRouter(AthletesList);

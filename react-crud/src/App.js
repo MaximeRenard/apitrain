@@ -8,6 +8,7 @@ import './App.css';
 
 // import specific component
 import AthletesList from "./components/athletes.component";
+import Homepage from "./components/home.component";
 // import AddAthletes from "./components/add-athletes.component";
 // import RetAthletes from "./components/athletes-get.component";
 
@@ -19,9 +20,10 @@ class App extends Component {
           <a href="/api" className="navbar-brand">
             Apitrain
           </a>
+          
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to={"/"} className="nav-link">
+              <Link to={"/Home"} className="nav-link">
                 Home
               </Link>
              </li>
@@ -34,10 +36,10 @@ class App extends Component {
            
           </div>
         </nav>
-
+         <img src={logo} className="App-logo" alt="logo" />
         <div className="container mt-3">
           <Routes>
-            <Route path="/" element={<AthletesList/>} />
+            <Route path="/Home" element={<Homepage/>} />
             <Route path="/Athletes/view/" element={<AthletesList/>} />
             
           </Routes>

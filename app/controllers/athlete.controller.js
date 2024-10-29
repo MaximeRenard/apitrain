@@ -38,13 +38,12 @@ exports.create = (req, res) => {
 
 // Retrieve all objects
 exports.findAllAthletes = (req, res) => {
-  const city = req.query.city;
 
-  Athlete.getAllAthletes(city, (err, data) => {
+  Athlete.getAllAthletes((err, data) => {
     if (err)
       res.status(500).send({
         message:
-          err.message || "Some error occurred while retrieving Athletes of city."
+          err.message || "Some error occurred while retrieving Athletes."
       });
     else res.send(data);
   });
