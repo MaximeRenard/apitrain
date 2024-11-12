@@ -40,7 +40,7 @@ Athlete.create = (newAthlete, result) => {
 };
 
 Athlete.findById = (id, result) => {
-  sql.query(`SELECT * FROM Athletes WHERE Athleteid = ${id}`, (err, res) => {
+  sql.query(`SELECT * FROM Athletes WHERE Athleteid = ?`,id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);

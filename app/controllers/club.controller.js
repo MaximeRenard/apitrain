@@ -29,3 +29,15 @@ exports.create = (req, res) => {
     else res.send(data);
   });
 };
+// Listing of all category
+exports.Allclub= (req, res) => {
+
+  Club.allclubs((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving clubs."
+      });
+    else res.send(data);
+  });
+};

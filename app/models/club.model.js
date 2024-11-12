@@ -26,5 +26,19 @@ Club.create = (newClub, result) => {
     result(null, { id: res.insertId, ...newClub });
   });
 };
+Club.allclubs = (result) => {
+  let query = "SELECT * FROM Clubs";
+
+  sql.query(query, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("Clubs: ", res);
+    result(null, res);
+  });
+};
 
 module.exports = Club;

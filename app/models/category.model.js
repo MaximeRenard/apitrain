@@ -23,5 +23,18 @@ Category.create = (newCategory, result) => {
     result(null, { id: res.insertId, ...newCategory });
   });
 };
+Category.category_athletes = (result) => {
+  let query = "SELECT * FROM CategoryAthletes";
 
+  sql.query(query, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("Category: ", res);
+    result(null, res);
+  });
+};
 module.exports = Category;

@@ -1,9 +1,7 @@
 const Category = require("../models/category.model.js");
 
 
-// Create category
-
-// FunctionCreate
+// Create function models
 exports.create = (req, res) => {
   // Validate request
   if (!req.body) {
@@ -24,6 +22,19 @@ exports.create = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while creating category."
+      });
+    else res.send(data);
+  });
+};
+
+  // Listing of all category
+  exports.AllCategory = (req, res) => {
+
+  Category.category_athletes((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Athletes."
       });
     else res.send(data);
   });
