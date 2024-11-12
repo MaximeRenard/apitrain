@@ -7,12 +7,12 @@ import { withRouter } from '../common/with-router';
 
 function FavoriteRace() {
   	const [race, setRace] = useState("Beaucouze");
-     const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
     useEffect(() => {
      setTimeout(() => {
       setCount((count) => count + 1);
-      }, 100000);
+      }, 10000);
     });
   	return(
       
@@ -52,7 +52,7 @@ export default withRouter(FavoriteRace);
 /*
  <button
             type="button"
-            onClick={HomeDataService.getHome()}
+            onClick={HomeDataService.getHomeapi()}
           >Get Home</button>
           Erreur axios
 */

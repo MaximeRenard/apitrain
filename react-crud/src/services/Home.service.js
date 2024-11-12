@@ -1,9 +1,13 @@
 import http from "../http-common";
 
 class HomeDataService{
-  // Get Home
-  getHome() {
-    return http.get("/Home/");
+  // Get Home api
+  getHomeapi() {
+    return http.get("/Homeapi/");
+  }
+  // Get Home web
+  getHomeweb() {
+    return http.get("/Homeweb/");
   }
 
 }  

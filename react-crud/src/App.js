@@ -8,13 +8,26 @@ import './App.css';
 
 // import specific component
 import AthletesList from "./components/athletes.component";
-import Homepage from "./components/home.component";
+import Homepageapp from "./components/homeapi.component";
+import Homepageweb from "./components/homeweb.component";
 // import AddAthletes from "./components/add-athletes.component";
 // import RetAthletes from "./components/athletes-get.component";
 
 class App extends Component {
   render() {
     return (
+      <html>
+     
+      <head>
+         <script type="text/javascript">
+            function controle(){
+              // var test = document.formulaire.entree.value;
+              alert("Vous avez ecrit :")
+              //console.log("test")
+            }
+          </script>
+      </head>
+      <body>
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <a href="/api" className="navbar-brand">
@@ -23,8 +36,14 @@ class App extends Component {
           
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to={"/Home"} className="nav-link">
-                Home
+              <Link to={"/Homeweb"} className="nav-link">
+                Home web
+              </Link>
+             </li>
+
+            <li className="nav-item">
+              <Link to={"/Homeapi"} className="nav-link">
+                Home api
               </Link>
              </li>
             <li className="nav-item">
@@ -36,15 +55,28 @@ class App extends Component {
            
           </div>
         </nav>
+
+        
          <img src={logo} className="App-logo" alt="logo" />
         <div className="container mt-3">
           <Routes>
-            <Route path="/Home" element={<Homepage/>} />
+            <Route path="/Homeweb" element={<Homepageweb/>} />
+            <Route path="/Homeapi" element={<Homepageapp/>} />
             <Route path="/Athletes/view/" element={<AthletesList/>} />
             
           </Routes>
+
+
         </div>
+        <h1>Test JS</h1>
+        
+          <form name="formulaire">
+        <input type="text" name="entree" value = ""/><br/>
+        <input type="button" value="Contrôler" onClick="controle()"/>
+      </form>
       </div>
+      </body>
+      </html>
 
     );
   }
