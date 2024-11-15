@@ -1,7 +1,7 @@
 import React, { Component , useState, useEffect }  from "react";
 import AthletesDataService from "../services/Athlete.service";
 import { Link } from "react-router-dom";
-//new
+//Router
 import { withRouter } from '../common/with-router';
 
 
@@ -72,7 +72,7 @@ class AthletesList extends Component {
       <div className="list row">
 	      <div className="col-md-6">
 	          <h4>Athletes List</h4>
-              <p><strong>Get Athletes</strong></p>
+              
 	            <ul className="list-group">
 	            {Athletes &&
 	              Athletes.map((athlete, index) => (

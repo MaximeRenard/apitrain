@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 // add
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-
+// import all app.js
 import App from './App';
 
 const container = document.getElementById("root");

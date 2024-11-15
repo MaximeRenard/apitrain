@@ -6,7 +6,8 @@ export default axios.create({
     "Content-type": "application/json"
   }
 });
-axios.get('/api/Athletes/view/')
+/*
+axios.get('Athletes/view/')
   .then(response => {
     // Handle the data from the backend
     console.log(response.data);
@@ -15,3 +16,4 @@ axios.get('/api/Athletes/view/')
     // Handle errors
     console.error('Error fetching data:', error);
   });
+*/

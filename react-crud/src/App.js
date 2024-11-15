@@ -6,10 +6,16 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import logo from './logo.svg';
 import './App.css';
 
+
+
 // import specific component
 import AthletesList from "./components/athletes.component";
 import Homepageapp from "./components/homeapi.component";
 import Homepageweb from "./components/homeweb.component";
+import Formpageweb from "./components/Form.component";
+import CategoryList from "./components/category.component";
+import DataHook from "./components/usereducer.Hook";
+
 // import AddAthletes from "./components/add-athletes.component";
 // import RetAthletes from "./components/athletes-get.component";
 
@@ -18,15 +24,7 @@ class App extends Component {
     return (
       <html>
      
-      <head>
-         <script type="text/javascript">
-            function controle(){
-              // var test = document.formulaire.entree.value;
-              alert("Vous avez ecrit :")
-              //console.log("test")
-            }
-          </script>
-      </head>
+      
       <body>
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -46,12 +44,31 @@ class App extends Component {
                 Home api
               </Link>
              </li>
+             <li className="nav-item">
+              
+              <Link to={"/Form/"} className="nav-link">
+                Forms
+              </Link>
+            </li>
+            <li className="nav-item">
+              
+              <Link to={"/DataHook/"} className="nav-link">
+                DataHook
+              </Link>
+            </li>
+            <li className="nav-item">
+              
+              <Link to={"/Category/view/"} className="nav-link">
+                Category of athletes 
+              </Link>
+            </li>
             <li className="nav-item">
               
               <Link to={"/Athletes/view/"} className="nav-link">
                 Athletes
               </Link>
             </li>
+             
            
           </div>
         </nav>
@@ -62,18 +79,16 @@ class App extends Component {
           <Routes>
             <Route path="/Homeweb" element={<Homepageweb/>} />
             <Route path="/Homeapi" element={<Homepageapp/>} />
+            <Route path="/Form/" element={<Formpageweb/>} />
+            <Route path="/DataHook/" element={<DataHook/>} />
             <Route path="/Athletes/view/" element={<AthletesList/>} />
+            <Route path="/Category/view/" element={<CategoryList/>} />
             
           </Routes>
 
 
         </div>
-        <h1>Test JS</h1>
-        
-          <form name="formulaire">
-        <input type="text" name="entree" value = ""/><br/>
-        <input type="button" value="Contrôler" onClick="controle()"/>
-      </form>
+        <h1>See category Data Hook table</h1>
       </div>
       </body>
       </html>
