@@ -14,7 +14,10 @@ import Homepageapp from "./components/homeapi.component";
 import Homepageweb from "./components/homeweb.component";
 import Formpageweb from "./components/Form.component";
 import CategoryList from "./components/category.component";
+import GetCategory from "./components/getcategorybase.component";
 import DataHook from "./components/usereducer.Hook";
+import HookFetch from "./components/indexhook";
+import Callback from "./components/index";
 
 // import AddAthletes from "./components/add-athletes.component";
 // import RetAthletes from "./components/athletes-get.component";
@@ -58,8 +61,26 @@ class App extends Component {
             </li>
             <li className="nav-item">
               
+              <Link to={"/Callback/"} className="nav-link">
+                Callback
+              </Link>
+            </li>
+            <li className="nav-item">
+              
+            <Link to={"/UseFetch/"} className="nav-link">
+                UseFetch
+            </Link>
+            </li>
+            <li className="nav-item">
+              
               <Link to={"/Category/view/"} className="nav-link">
                 Category of athletes 
+              </Link>
+            </li>
+            <li className="nav-item">
+              
+              <Link to={"/NewCategory/view/"} className="nav-link">
+                New Category 
               </Link>
             </li>
             <li className="nav-item">
@@ -81,8 +102,13 @@ class App extends Component {
             <Route path="/Homeapi" element={<Homepageapp/>} />
             <Route path="/Form/" element={<Formpageweb/>} />
             <Route path="/DataHook/" element={<DataHook/>} />
+            <Route path="/Callback/" element={<Callback/>} />
+            <Route path="/UseFetch/" element={<HookFetch/>} />
             <Route path="/Athletes/view/" element={<AthletesList/>} />
             <Route path="/Category/view/" element={<CategoryList/>} />
+            <Route path="/NewCategory/view/" element={<GetCategory/>} />
+            
+
             
           </Routes>
 

@@ -47,6 +47,8 @@ function Todos() {
               onChange={() => handleComplete(todo)}
             />
             {todo.title}
+            {todo.id}
+            {todo.complete}
           </label>
         </div>
       ))}

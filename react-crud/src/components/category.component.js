@@ -1,11 +1,11 @@
 import CategoryDataService from "../services/Category.service";
-import React, { Component , useState, useEffect }  from "react";
+import React, { Component , useState }  from "react";
 
 import { Link } from "react-router-dom";
 //Router
 import { withRouter } from '../common/with-router';
 //Find Category of specific category
-//import CategoryDataService from "../services/Athlete.service";
+
 
 class CategoryList extends Component {
   constructor(props) {
@@ -61,7 +61,7 @@ class CategoryList extends Component {
   	alert("Passage refreshList")
     this.retrievecategory();
     this.setState({
-      Categoryid: [1,2,3,4,5],
+      Categoryid: [1],
       NameCategory: 'default',
   	  DescriptionCategory:'default'
     });
@@ -69,7 +69,7 @@ class CategoryList extends Component {
 
   setActiveCategory(category, index) {
     this.setState({
-      Categoryid: [1,2,3,4,5],
+      Categoryid: [1,234],
       NameCategory: category,
   	  DescriptionCategory: index
       
@@ -79,16 +79,17 @@ class CategoryList extends Component {
 
 
   render() {
-    const { Category, NameCategory, DescriptionCategory } = this.state;
+    const { Categoryid, NameCategory, DescriptionCategory } = this.state;
 
     return (
       <div className="list row">
 	      <div className="col-md-6">
 	          <h4>Category List</h4>
-              <p><strong>Get Category</strong></p>
+            <p> On click list appel de setActiveCategory</p>
+             
 	            <ul className="list-group">
-	            {Category &&
-	              Category.map((category, index) => (
+	            {Categoryid &&
+	              Categoryid.map((category, index) => (
 	                <li
 	                  className={
 	                    "list-group-item " +
@@ -97,7 +98,7 @@ class CategoryList extends Component {
 	                  onClick={() => this.setActiveCategory(category, index)}
 	                  key={index}
 	                >
-	                  <p><strong>Get Category</strong></p> {category.Categoryid}
+	                  <p><strong>Get Category : </strong> {category[0]}</p>
 	                </li>
                 ))}
             </ul>
