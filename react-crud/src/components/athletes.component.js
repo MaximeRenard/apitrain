@@ -84,7 +84,7 @@ class AthletesList extends Component {
 	                  onClick={() => this.setActiveAthlete(athlete, index)}
 	                  key={index}
 	                >
-	                  <p><strong>Get Athletes</strong></p> {athlete.Athleteid}
+	                  <p><strong>Get Athletes</strong> {athlete.Athleteid} : {athlete.City} </p>
 	                </li>
                 ))}
             </ul>

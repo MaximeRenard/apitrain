@@ -14,7 +14,9 @@ import Homepageapp from "./components/homeapi.component";
 import Homepageweb from "./components/homeweb.component";
 import Formpageweb from "./components/Form.component";
 import CategoryList from "./components/category.component";
+// Exemple with base
 import GetCategory from "./components/getcategorybase.component";
+import FetchCategory from "./components/getCategoryfetch.component";
 import DataHook from "./components/usereducer.Hook";
 import HookFetch from "./components/indexhook";
 import Callback from "./components/index";
@@ -80,7 +82,13 @@ class App extends Component {
             <li className="nav-item">
               
               <Link to={"/NewCategory/view/"} className="nav-link">
-                New Category 
+                Fetch in web base
+              </Link>
+            </li>
+             <li className="nav-item">
+              
+              <Link to={"/Fetchexample/view/"} className="nav-link">
+                Fetch GetCategory
               </Link>
             </li>
             <li className="nav-item">
@@ -107,6 +115,8 @@ class App extends Component {
             <Route path="/Athletes/view/" element={<AthletesList/>} />
             <Route path="/Category/view/" element={<CategoryList/>} />
             <Route path="/NewCategory/view/" element={<GetCategory/>} />
+            <Route path="/Fetchexample/view/" element={<FetchCategory/>} />
+            
             
 
             
@@ -114,7 +124,7 @@ class App extends Component {
 
 
         </div>
-        <h1>See category Data Hook table</h1>
+        <p>Aim : See category in fetch method</p>
       </div>
       </body>
       </html>

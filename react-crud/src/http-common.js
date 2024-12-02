@@ -7,6 +7,11 @@ export default axios.create({
   }
 });
 /*
+axios.get('Category/view')
+  .then(response => {
+    // Handle the data from the backend
+    console.log(response.data);
+});
 axios.get('Athletes/view/')
   .then(response => {
     // Handle the data from the backend

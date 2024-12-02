@@ -6,10 +6,18 @@ const path = require('path');
 // Api
 const app = express();
 // option servor connection
+// ["http://localhost:8080/api","http://localhost:8081/api"]
 var corsOptions = {
-	origin: "http://localhost:8080/api"
+	origin: "*",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
-
+/*
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});*/
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json

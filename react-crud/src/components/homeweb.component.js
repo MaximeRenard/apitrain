@@ -87,7 +87,7 @@ function Welcomepage(){
 	const previousUsername = useRef("");
 	useEffect(() => {
     previousUsername.current = userName;
-  	}, [userName]);
+  }, [userName]);
 	 // Useref
 	const [inputValue, setInputValue] = useState("ahj");
 	const count = useRef(0);
@@ -166,7 +166,7 @@ function Welcomepage(){
     <h2>Focus input Acces</h2>
     <input type="text" ref={inputElement} />
       <button onClick={focusInput}>Focus Input</button>
-   	<h2>Tracking State Changes insere for name athletes</h2>
+   	<h2>Tracking State Changes insere</h2>
    	<input
         type="text"
         value={inputValue}

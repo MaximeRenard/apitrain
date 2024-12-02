@@ -29,7 +29,7 @@ exports.create = (req, res) => {
 
   // Listing of all category
   exports.AllCategory = (req, res) => {
-  alert("passage AllCategory back")
+  
   Category.category_athletes((err, data) => {
     if (err)
       res.status(500).send({
@@ -37,6 +37,6 @@ exports.create = (req, res) => {
           err.message || "Some error occurred while retrieving Category."
       });
     else res.send(data);
-    alert(res)
+    
   });
 };

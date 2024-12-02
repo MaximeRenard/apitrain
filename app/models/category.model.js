@@ -35,6 +35,7 @@ Category.category_athletes = (result) => {
 
     console.log("Category: ", res);
     result(null, res);
+    return res;
   });
 };
 module.exports = Category;

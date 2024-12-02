@@ -25,10 +25,5 @@ export default withRouter(Home);
 
 /*
 The fetch logic may be needed in other components We implement this function in UseFetch.js
-const [data, setData] = useState(null);
-useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((res) => res.json())
-      .then((data) => setData(data));
- }, []);
+
  */

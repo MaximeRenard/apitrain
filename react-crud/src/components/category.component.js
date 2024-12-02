@@ -61,7 +61,7 @@ class CategoryList extends Component {
   	alert("Passage refreshList")
     this.retrievecategory();
     this.setState({
-      Categoryid: [1],
+      Categoryid: [],
       NameCategory: 'default',
   	  DescriptionCategory:'default'
     });
@@ -69,7 +69,7 @@ class CategoryList extends Component {
 
   setActiveCategory(category, index) {
     this.setState({
-      Categoryid: [1,234],
+      Categoryid: [],
       NameCategory: category,
   	  DescriptionCategory: index
       
@@ -98,7 +98,7 @@ class CategoryList extends Component {
 	                  onClick={() => this.setActiveCategory(category, index)}
 	                  key={index}
 	                >
-	                  <p><strong>Get Category : </strong> {category[0]}</p>
+	                  <p><strong>Get Category : </strong> {category.NameCategory}</p>
 	                </li>
                 ))}
             </ul>
