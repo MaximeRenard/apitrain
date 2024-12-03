@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 import { withRouter } from '../common/with-router';
 
 
-
-// Class Exporté
-// sauf si export default class router
+// Class GET Athletes list
 class AthletesList extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +18,7 @@ class AthletesList extends Component {
     this.state = {
       Athletes: [],
       currentAthlete: null,
-      currentIndex: -1
+      currentIndex: 0
     };
   }
  
@@ -35,14 +33,14 @@ class AthletesList extends Component {
       .then(response => {
         this.setState({
           Athletes: response.data
-        });
-        console.log(response.data); 
+        }); 
       })
       .catch(e => {
         console.log(e);
       });
       return "Sucesss";
   }
+  // async fonction
   getData = async() => {
        
         await this.retrieveAthletes();
@@ -52,7 +50,7 @@ class AthletesList extends Component {
     this.retrieveAthletes();
     this.setState({
       currentAthlete: null,
-      currentIndex: -1
+      currentIndex: 0
     });
   }
 
@@ -84,8 +82,11 @@ class AthletesList extends Component {
 	                  onClick={() => this.setActiveAthlete(athlete, index)}
 	                  key={index}
 	                >
-	                  <p><strong>Get Athletes</strong> {athlete.Athleteid} : {athlete.City} </p>
+	                  <p><strong>Athletes</strong> {athlete.Athleteid} : {athlete.FirstName}  - {athlete.Years} years old- 
+                    Detail  Category: {athlete.Categoryid} - Coach : {athlete.Categoryid}
+                    Club : {athlete.Clubid}</p>
 	                </li>
+
                 ))}
             </ul>
                   <button 
@@ -93,6 +94,12 @@ class AthletesList extends Component {
                     onClick={this.getData}
                   >
                     Get All
+                </button>
+                <button 
+                    className="m-3 btn btn-sm btn-danger"
+                    onClick={this.refreshList}
+                  >
+                    refreshList
                 </button>
                 
 	      </div>  
@@ -102,3 +109,19 @@ class AthletesList extends Component {
   }
 }
 export default withRouter(AthletesList);
+
+/*
+Model
+                   LastName varchar(20) NOT NULL,
+        FirstName varchar(20)NOT NULL,
+        Years int(4) NOT NULL,
+        Weight FLOAT(5,2),
+        Height FLOAT(4,2),
+        City varchar(50) NOT NULL,
+        FavoriteDistance varchar(20),
+        Clubid int NOT NULL,
+        FOREIGN KEY (Clubid) REFERENCES Clubs(Clubid),
+        Coachid int NOT NULL,
+        FOREIGN KEY (Coachid) REFERENCES Coach(Coachid),
+        Categoryid int(11) NOT NULL,
+*/

@@ -18,8 +18,8 @@ class CategoryList extends Component {
 
     this.state = {
       Categoryid: [],
-      NameCategory: 'default',
-  	  DescriptionCategory: 'default'
+      currentCategory: 'default',
+  	  currentIndex: 'default'
     };
   }
  
@@ -29,49 +29,36 @@ class CategoryList extends Component {
   }
 
   retrievecategory() {
-    // Get reponse
-    alert("Passage retrieve")
+   
+   
     CategoryDataService.AllCategory()
-    //alert("Passage AllCategory")
       .then(response => {
         this.setState({
           Categoryid: response.data,
-      	  NameCategory: response.data,
-  	  	  DescriptionCategory: response.data
         });
-        
-        
       })
-      //console.log(response.data);
-
       .catch(e => {
       	alert(e)
         console.log(e);
       });
-      //alert(response.data)
-      alert("Passage retrieve Sucesss")
       return "Sucesss";
   }
   getCate = async() => {
-       	alert("Passage async function")
         await this.retrievecategory();
   };
 
   refreshList() {
-  	alert("Passage refreshList")
     this.retrievecategory();
     this.setState({
-      Categoryid: [],
-      NameCategory: 'default',
-  	  DescriptionCategory:'default'
+      currentCategory: null,
+      currentIndex: 0
     });
   }
 
   setActiveCategory(category, index) {
     this.setState({
-      Categoryid: [],
-      NameCategory: category,
-  	  DescriptionCategory: index
+      currentCategory: category,
+      currentIndex: index
       
     });
   }
@@ -79,7 +66,7 @@ class CategoryList extends Component {
 
 
   render() {
-    const { Categoryid, NameCategory, DescriptionCategory } = this.state;
+    const { Categoryid,currentCategory, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -91,14 +78,14 @@ class CategoryList extends Component {
 	            {Categoryid &&
 	              Categoryid.map((category, index) => (
 	                <li
-	                  className={
-	                    "list-group-item " +
-	                    (index === DescriptionCategory ? "active" : "")
-	                  }
-	                  onClick={() => this.setActiveCategory(category, index)}
-	                  key={index}
-	                >
-	                  <p><strong>Get Category : </strong> {category.NameCategory}</p>
+                    className={
+                      "list-group-item " +
+                      (index === currentIndex  ? "active" : "")
+                    }
+                    onClick={() => this.setActiveCategory(category, index)}
+                    key={index}
+                  >
+	               <p><strong>Category {category.Categoryid}: </strong> {category.NameCategory} : {category.DescriptionCategory} </p>
 	                </li>
                 ))}
             </ul>
@@ -122,3 +109,8 @@ class CategoryList extends Component {
   }
 }
 export default withRouter(CategoryList);
+
+/*
+
+
+*/

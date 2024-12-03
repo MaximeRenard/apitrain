@@ -20,10 +20,13 @@ mysql> DROP TABLE Clubs;
 
 ### 22/10 Validation of first model test with Postman
 #### Next Insert data in race and ResultAthletesRace
+## 02/12 Front end request GET with axios to back server
 ## Front End 
 ### React
-#### Nexstep create dataservice with Atletes base
+#### Nexstep Add Table Club and request PUT
+#### More CSS
+### Apply effect on event race
 ### Authors : Maxime RENARD
-#### Date 09/10/24
+#### Date 03/12/24
 ##### Dvt : Front and site with carreer
 ###### Connexion

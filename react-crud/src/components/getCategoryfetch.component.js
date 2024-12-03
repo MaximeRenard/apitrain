@@ -7,15 +7,7 @@ const Homes = () => {
   const url = "http://127.0.0.1:8080/api/Category/view/";
   // Data like base
   const [data, setData] = useState([]);
-  /*const fetchInfo = () => { 
-    return axios.get(url) 
-        return axios.get(url).then((response) => setData(response.data));
-  }
-
-  useEffect(() => { 
-        fetchInfo(); 
-  }, [])
-  */
+ 
   async function afficherFilms() {
   const reponse = await fetch("https://jsonplaceholder.typicode.com/posts/1",{
     method: "GET", // *GET, POST, PUT, DELETE, etc.
@@ -66,7 +58,7 @@ const Homes = () => {
   return (
     <>
     <div className="App">
-      <h1 style={{ color: "green" }}>using hook Library to Fetch Data</h1>
+      <h1 style={{ color: "green" }}>Try using hook Library to Fetch Data</h1>
       <center>
         {data.map((dataObj, index) => {
           return (
@@ -98,6 +90,7 @@ const Homes = () => {
                   >
                     Get categorie
                 </button>
+      <h2> Fetch is good to https request</h2>
     </>
   );
 };

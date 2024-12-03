@@ -1,28 +1,31 @@
 import React, { Component } from "react";
 import { Routes, Route, Link } from "react-router-dom";
+// navigate
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 // react page
 import logo from './logo.svg';
 import './App.css';
 
-
-
-// import specific component
+// import table
 import AthletesList from "./components/athletes.component";
+import CategoryList from "./components/category.component";
+//import ClubList from "./components/club.component";
+//import CoachList from "./components/coach.component";
+// import RaceList from "./components/race.component";
+// import ResultList from "./components/Result.component";
+// Home Tutoriel
 import Homepageapp from "./components/homeapi.component";
 import Homepageweb from "./components/homeweb.component";
 import Formpageweb from "./components/Form.component";
-import CategoryList from "./components/category.component";
-// Exemple with base
-import GetCategory from "./components/getcategorybase.component";
+
+// Exemple with Hook
 import FetchCategory from "./components/getCategoryfetch.component";
 import DataHook from "./components/usereducer.Hook";
 import HookFetch from "./components/indexhook";
 import Callback from "./components/index";
 
-// import AddAthletes from "./components/add-athletes.component";
-// import RetAthletes from "./components/athletes-get.component";
+
 
 class App extends Component {
   render() {
@@ -73,22 +76,17 @@ class App extends Component {
                 UseFetch
             </Link>
             </li>
-            <li className="nav-item">
-              
-              <Link to={"/Category/view/"} className="nav-link">
-                Category of athletes 
-              </Link>
-            </li>
-            <li className="nav-item">
-              
-              <Link to={"/NewCategory/view/"} className="nav-link">
-                Fetch in web base
-              </Link>
-            </li>
+           
              <li className="nav-item">
               
               <Link to={"/Fetchexample/view/"} className="nav-link">
                 Fetch GetCategory
+              </Link>
+            </li>
+            <li className="nav-item">
+              
+              <Link to={"/Category/view/"} className="nav-link">
+                Category of athletes 
               </Link>
             </li>
             <li className="nav-item">
@@ -114,7 +112,6 @@ class App extends Component {
             <Route path="/UseFetch/" element={<HookFetch/>} />
             <Route path="/Athletes/view/" element={<AthletesList/>} />
             <Route path="/Category/view/" element={<CategoryList/>} />
-            <Route path="/NewCategory/view/" element={<GetCategory/>} />
             <Route path="/Fetchexample/view/" element={<FetchCategory/>} />
             
             
@@ -124,7 +121,6 @@ class App extends Component {
 
 
         </div>
-        <p>Aim : See category in fetch method</p>
       </div>
       </body>
       </html>

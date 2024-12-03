@@ -27,7 +27,8 @@
 .App-link {
   color: #61dafb;
 }
-
+/*
+Rotate logo
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,6 +37,7 @@
     transform: rotate(360deg);
   }
 }
+*/
 .list {
   text-align: left;
   max-width: 750px;
@@ -51,3 +53,4 @@
   max-width: 300px;
   margin: auto;
 }
+background-color :lightyellow;
