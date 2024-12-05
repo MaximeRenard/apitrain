@@ -31,3 +31,16 @@ exports.create = (req, res) => {
     else res.send(data);
   });
 };
+  // Listing of all category
+  exports.view = (req, res) => {
+  
+  Coach.viewCoach((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving Coachs."
+      });
+    else res.send(data);
+    
+  });
+};

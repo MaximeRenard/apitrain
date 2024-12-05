@@ -5,15 +5,17 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 // react page
 import logo from './logo.svg';
+//import mylogo from './Logo_perso_plain.svg';
 import './App.css';
 
 // import table
 import AthletesList from "./components/athletes.component";
 import CategoryList from "./components/category.component";
-//import ClubList from "./components/club.component";
-//import CoachList from "./components/coach.component";
+import ClubList from "./components/club.component";
+import CoachList from "./components/coach.component";
 // import RaceList from "./components/race.component";
 // import ResultList from "./components/Result.component";
+
 // Home Tutoriel
 import Homepageapp from "./components/homeapi.component";
 import Homepageweb from "./components/homeweb.component";
@@ -91,10 +93,23 @@ class App extends Component {
             </li>
             <li className="nav-item">
               
+              <Link to={"/Clubs/view/"} className="nav-link">
+                Club List
+              </Link>
+            </li>
+            <li className="nav-item">
+              
               <Link to={"/Athletes/view/"} className="nav-link">
                 Athletes
               </Link>
             </li>
+             <li className="nav-item">
+              
+              <Link to={"/Coachs/view/"} className="nav-link">
+                Coach List
+              </Link>
+            </li>
+            
              
            
           </div>
@@ -110,9 +125,12 @@ class App extends Component {
             <Route path="/DataHook/" element={<DataHook/>} />
             <Route path="/Callback/" element={<Callback/>} />
             <Route path="/UseFetch/" element={<HookFetch/>} />
-            <Route path="/Athletes/view/" element={<AthletesList/>} />
-            <Route path="/Category/view/" element={<CategoryList/>} />
             <Route path="/Fetchexample/view/" element={<FetchCategory/>} />
+            <Route path="/Athletes/view/" element={<AthletesList/>} />
+            <Route path="/Clubs/view/" element={<ClubList/>} />
+            <Route path="/Category/view/" element={<CategoryList/>} />
+            <Route path="/Coachs/view/" element={<CoachList/>} />
+            
             
             
 

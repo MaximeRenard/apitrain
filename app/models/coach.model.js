@@ -27,5 +27,20 @@ Coach.create = (newCoach, result) => {
     result(null, { id: res.insertId, ...newCoach });
   });
 };
+Coach.viewCoach = (result) => {
+  let query = "SELECT * FROM Coach";
+
+  sql.query(query, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("Coach: ", res);
+    result(null, res);
+    //return res;
+  });
+};
 
 module.exports = Coach;
