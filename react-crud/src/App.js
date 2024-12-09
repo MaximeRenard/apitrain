@@ -33,13 +33,16 @@ class App extends Component {
   render() {
     return (
       <html>
+      <head>
+      <h1> Api Foxrun</h1>
+      </head>
      
       
       <body>
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <a href="/api" className="navbar-brand">
-            Apitrain
+            Foxrun
           </a>
           
           <div className="navbar-nav mr-auto">
@@ -114,9 +117,9 @@ class App extends Component {
            
           </div>
         </nav>
-
+        <h1> Api Foxrun</h1>
         
-         <img src={logo} className="App-logo" alt="logo" />
+         <img src="Logo_perso.svg" className="fit-picture" alt="logo" />
         <div className="container mt-3">
           <Routes>
             <Route path="/Homeweb" element={<Homepageweb/>} />

@@ -1,9 +1,9 @@
 import http from "../http-common";
   
 class AthletesDataService{
-  // get Id
-  get(id) {
-    return http.get(`/Athletes/${id}`);
+  // Retrieve a single Tutorial with id
+  getid(id) {
+    return http.get(`/Athletes/view/${id}`);
   }
   // Create data
   create(data) {

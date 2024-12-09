@@ -6,6 +6,10 @@
   height: 40vmin;
   pointer-events: none;
 }
+.fit-picture {
+  width: 25%;
+  height: 25%;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -53,4 +57,4 @@ Rotate logo
   max-width: 300px;
   margin: auto;
 }
-background-color :lightyellow;
+.background-color :lightyellow;

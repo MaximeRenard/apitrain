@@ -89,7 +89,7 @@ function Welcomepage(){
     previousUsername.current = userName;
   }, [userName]);
 	 // Useref
-	const [inputValue, setInputValue] = useState("ahj");
+	const [inputValue, setInputValue] = useState("Maxime");
 	const count = useRef(0);
 
 	useEffect(() => {
@@ -111,17 +111,16 @@ function Welcomepage(){
 		<html>
 		<body>
 		<UserContext.Provider value={userName}>
-      <h1>{`Hello ${userName} with Hook tutoriel and context!`}</h1>
+      <h2>{`Hello ${userName} with Hook tutoriel and context!`}</h2>
       <Component2 userName={userName} />
     </UserContext.Provider>   
-		<h6>{`Hello ${userName} with button and default value error in Hook useState!`}</h6>
 		
 			 
 				 <label htmlFor={nameId}>Your name:
 				<input id={nameId} type="text"  value={userName} readOnly={false} onChange={(e) =>setUser(e.target.value)}/>
 				</label>  
-				<h2>Current Value: {userName}</h2>
-      			<h2>Previous Value: {previousUsername.current}</h2>
+				<p>Current Value: {userName}</p>
+      			<p>Previous Value: {previousUsername.current}</p>
 				 {userName !== '' && <p>Your name is {userName}.</p>}<br/>
 				
 				<button type="button" onClick={(e) => setUser("Trail Apocalypse")}>Trail</button>
@@ -166,14 +165,7 @@ function Welcomepage(){
     <h2>Focus input Acces</h2>
     <input type="text" ref={inputElement} />
       <button onClick={focusInput}>Focus Input</button>
-   	<h2>Tracking State Changes insere</h2>
-   	<input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <h6>Current Value: {inputValue}</h6>
-      <h6>Previous Value: {previousInputValue.current}</h6>
+  
  
 	</body>
 </html>

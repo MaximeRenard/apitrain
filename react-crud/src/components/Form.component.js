@@ -20,7 +20,7 @@ class formAthletes extends Component {
     event.preventDefault();
   }
   handleSubmitall(event) {
-    alert('A name was submitted: ' + this.state.value + 'Race was submitted: ' + this.state.race);
+    alert('A name was submitted: ' + this.state.value + ' Race was submitted: ' + this.state.race);
     event.preventDefault();
   }
   // Race
@@ -35,9 +35,9 @@ class formAthletes extends Component {
       <>
       <form onSubmit={this.handleSubmitall}>
           <label>
-          Name:
+          Name: </label>
           <input type="text" value={this.state.value} onChange={this.handleChange} />        
-          </label>
+          
           <br/>
       
         <label>
