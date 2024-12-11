@@ -76,7 +76,7 @@ import { withRouter } from '../common/with-router';
       <div className="submit-form">
         {this.state.submitted ? (
           <div>
-            <h4>You submitted successfully!</h4>
+            <h4>You submitted successfully category to master!</h4>
             <button className="btn btn-success" onClick={this.newCategory}>
               Add
             </button>
@@ -122,8 +122,10 @@ import { withRouter } from '../common/with-router';
                       >
                         Back to category 
                     </Link>
+                    
                     </button>
-                </div>
+                    
+          </div>
       </div>
     );
   }

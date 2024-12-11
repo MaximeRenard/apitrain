@@ -88,7 +88,7 @@ const Homes = () => {
                     className="m-3 btn btn-sm btn-danger"
                     onClick={getCategorie}
                   >
-                    Get categorie
+                    Get categorie don't work
                 </button>
       <h2> Fetch is good to https request</h2>
     </>

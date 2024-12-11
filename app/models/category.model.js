@@ -51,7 +51,7 @@ Category.removeAll = result => {
   });
 };
 Category.remove = (id, result) => {
-  sql.query("DELETE FROM Athletes WHERE Categoryid = ?", id, (err, res) => {
+  sql.query("DELETE FROM CategoryAthletes WHERE Categoryid = ?", id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

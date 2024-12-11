@@ -12,7 +12,7 @@ module.exports = app => {
   router.delete("/deleteall", category.deleteAll);
 
   // Delete category
-  //router.delete("/delete", category.delete);
+  router.delete("/delete/:id", category.delete);
   
 
   app.use('/api/Category', router);
