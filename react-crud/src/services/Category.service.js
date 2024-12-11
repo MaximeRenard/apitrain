@@ -10,16 +10,12 @@ class CategoryDataService{
   AllCategory() {
     return http.get("/Category/view");
   }
+  // Get all athlete
+  deleteAll() {
+    return http.delete("/Category/deleteall");
+  }  
+}
 
-}  
 
-/*
-  // Create a new Tutorial
-  router.post("/create", category.create);
-  // View category
-  router.get("/view", category.AllCategory);
-
-  app.use('/api/Category', router);
-*/
 
 export default new CategoryDataService();

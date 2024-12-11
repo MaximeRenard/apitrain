@@ -69,6 +69,7 @@ class CategoryList extends Component {
     const { Categoryid,currentCategory, currentIndex } = this.state;
 
     return (
+    <>
       <div className="list row">
 	      <div className="col-md-6">
 	          <h4>Category List</h4>
@@ -102,9 +103,54 @@ class CategoryList extends Component {
                     refreshList
                 </button>
                 
-	      </div>  
-     
+	      </div>
+        <div className="col-md-6">
+            {currentCategory ? (
+                <div>  
+                  <h4>Detail List</h4>
+                  <div>
+                    <label>
+                      <strong>ID:</strong>
+                    </label>{" "}
+                    {currentCategory.Categoryid}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Name:</strong>
+                    </label>{" "}
+                    {currentCategory.NameCategory}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Description:</strong>
+                    </label>{" "}
+                    {currentCategory.DescriptionCategory}
+                  </div>
+                  
+                 <div>  
+                  <button className="m-3 btn btn-sm btn-danger">
+                    <Link
+                        to={"/Category/create"}
+                        className="badge badge-warning"
+                      >
+                        to category add
+                    </Link>
+                    </button>
+                </div>
+              </div>  
+                  
+                  ) : (
+
+                  <div>
+                    <br />
+                    <p>Please click on a Category...</p>
+                  </div>
+            
+            )}
+          </div>
+
       </div>
+    </>
     );
   }
 }

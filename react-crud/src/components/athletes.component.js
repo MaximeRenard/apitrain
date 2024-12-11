@@ -13,6 +13,7 @@ class AthletesList extends Component {
     this.refreshList = this.refreshList.bind(this);
     this.setActiveAthlete = this.setActiveAthlete.bind(this);
     this.retrieveAthletesbyid = this.retrieveAthletesbyid.bind(this);
+    this.removeAllCategory = this.removeAllCategory.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -71,6 +72,16 @@ class AthletesList extends Component {
       currentAthlete: null,
       currentIndex: -1
     });
+  }
+  removeAllCategory() {
+    CategoryDataService.deleteAll()
+      .then(response => {
+        console.log(response.data);
+        this.refreshList();
+      })
+      .catch(e => {
+        console.log(e);
+      });
   }
 
   setActiveAthlete(athlete, index) {

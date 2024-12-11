@@ -8,5 +8,12 @@ module.exports = app => {
   // View category
   router.get("/view", category.AllCategory);
 
+  // Delete all category
+  router.delete("/deleteall", category.deleteAll);
+
+  // Delete category
+  //router.delete("/delete", category.delete);
+  
+
   app.use('/api/Category', router);
 };

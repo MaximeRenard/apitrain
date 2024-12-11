@@ -38,4 +38,34 @@ Category.category_athletes = (result) => {
     //return res;
   });
 };
+Category.removeAll = result => {
+  sql.query("DELETE FROM CategoryAthletes", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log(`deleted ${res.affectedRows} Category`);
+    result(null, res);
+  });
+};
+Category.remove = (id, result) => {
+  sql.query("DELETE FROM Athletes WHERE Categoryid = ?", id, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    if (res.affectedRows == 0) {
+      // not found Athlete with the id
+      result({ kind: "not_found" }, null);
+      return;
+    }
+
+    console.log("deleted Category with id: ", id);
+    result(null, res);
+  });
+};
 module.exports = Category;

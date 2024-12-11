@@ -11,6 +11,7 @@ import './App.css';
 // import table
 import AthletesList from "./components/athletes.component";
 import CategoryList from "./components/category.component";
+import CategoryAdd from "./components/add-category.component";
 import ClubList from "./components/club.component";
 import CoachList from "./components/coach.component";
 // import RaceList from "./components/race.component";
@@ -94,6 +95,7 @@ class App extends Component {
                 Category of athletes 
               </Link>
             </li>
+
             <li className="nav-item">
               
               <Link to={"/Clubs/view/"} className="nav-link">
@@ -132,6 +134,7 @@ class App extends Component {
             <Route path="/Athletes/view/" element={<AthletesList/>} />
             <Route path="/Clubs/view/" element={<ClubList/>} />
             <Route path="/Category/view/" element={<CategoryList/>} />
+            /*<Route path="/Category/create/" element={<CategoryAdd/>} />*/
             <Route path="/Coachs/view/" element={<CoachList/>} />
             
             
