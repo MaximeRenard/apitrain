@@ -102,7 +102,6 @@ import { withRouter } from '../common/with-router';
                 type="text"
                 className="form-control"
                 id="DescriptionCategory"
-                required
                 value={this.state.DescriptionCategory}
                 onChange={this.onChangeDescription}
                 name="DescriptionCategory"

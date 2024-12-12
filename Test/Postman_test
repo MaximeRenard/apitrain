@@ -20,6 +20,20 @@
     "Description": "Running cool",
     "Clubid": 1
 }
+{
+    "Name": "cat",
+    "Years": 3,
+    "City": "Angers",
+    "Description": "Speedy cool",
+    "Clubid": 1
+}
+{
+    "Name": "human",
+    "Years": 35,
+    "City": "Beaucouze",
+    "Description": "Speedy cool",
+    "Clubid": 2
+}
 # Create Category
 # POST http://127.0.0.1:8080/api/Category/create
 const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes( 
@@ -29,11 +43,11 @@ const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes(
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
 
 {
-    "Name": "Senior",
+    "NameCategory": "Senior",
     "DescriptionCategory": "22-35 years old"
 }
 {
-    "Name": "Master",
+    "NameCategory": "Master",
     "DescriptionCategory": "35-65 years old"
 }
 # Create athlete
@@ -61,4 +75,23 @@ const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes(
     "Clubid" : 2,
     "Coachid": 1,
     "Categoryid" :1
+}
+{
+    "FirstName" : "Clipsy",
+    "LastName": "SPEEDY",
+    "Years": 2,
+    "Weight":6.5,
+    "Height" : 0.25,
+    "City" : "Cat",
+    "FavoriteDistance" : "0km",
+    "Clubid" : 2,
+    "Coachid": 2,
+    "Categoryid" :3
+}
+// Update category 
+http://127.0.0.1:8080/api/Category/update/6
+
+{
+    "NameCategory" : "Minimes",
+    "DescriptionCategory": "14-16",
 }

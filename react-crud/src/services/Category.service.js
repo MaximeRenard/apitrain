@@ -21,6 +21,11 @@ class CategoryDataService{
   delete(id) {
     return http.delete(`/Category/delete/${id}`);
   }
+  //update category
+  update(id,data) {
+    return http.put(`/Category/update/${id}`,data);
+  }
+
 
 
 }

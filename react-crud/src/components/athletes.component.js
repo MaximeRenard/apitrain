@@ -13,10 +13,10 @@ class AthletesList extends Component {
     this.refreshList = this.refreshList.bind(this);
     this.setActiveAthlete = this.setActiveAthlete.bind(this);
     this.retrieveAthletesbyid = this.retrieveAthletesbyid.bind(this);
-    this.removeAllCategory = this.removeAllCategory.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    // Retrieve category
+    //this.removeAllCategory = this.removeAllCategory.bind(this);
     
     this.state = {
       Athletes: [],
@@ -73,6 +73,7 @@ class AthletesList extends Component {
       currentIndex: -1
     });
   }
+  /*
   removeAllCategory() {
     CategoryDataService.deleteAll()
       .then(response => {
@@ -83,7 +84,7 @@ class AthletesList extends Component {
         console.log(e);
       });
   }
-
+  */
   setActiveAthlete(athlete, index) {
     this.setState({
       currentAthlete: athlete,
@@ -200,6 +201,7 @@ class AthletesList extends Component {
             
             )}
           </div>
+
           
         </div>
       </>

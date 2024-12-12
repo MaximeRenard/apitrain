@@ -15,9 +15,18 @@ class CategoryList extends Component {
     this.refreshList = this.refreshList.bind(this);
     this.getCategory = this.getCategory.bind(this);
     this.setActiveCategory = this.setActiveCategory.bind(this);
+    //delete
     this.removeAllCategory = this.removeAllCategory.bind(this);
-    this.updateCategory = this.updateCategory.bind(this);
     this.deleteCategory = this.deleteCategory.bind(this);
+
+    // Update
+    this.onChangeTitle = this.onChangeTitle.bind(this);
+    this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.updateCategory = this.updateCategory.bind(this);
+
+    // Create
+    this.saveCategory = this.saveCategory.bind(this);
+    this.newCategory = this.newCategory.bind(this);
 
     this.state = {
       Categoryid: [],
@@ -90,6 +99,31 @@ class CategoryList extends Component {
     });
   }
 
+  onChangeTitle(e) {
+    const title = e.target.value;
+
+    this.setState(function(prevState) {
+      return {
+        currentCategory: {
+          ...prevState.currentCategory,
+          NameCategory: title
+        }
+      };
+    });
+  }
+
+  onChangeDescription(e) {
+    const description = e.target.value;
+    
+    this.setState(prevState => ({
+      currentCategory: {
+        ...prevState.currentCategory,
+        DescriptionCategory: description
+      }
+    }));
+  }
+
+
   updateCategory() {
     CategoryDataService.update(
       this.state.currentCategory.Categoryid,
@@ -100,10 +134,41 @@ class CategoryList extends Component {
         this.setState({
           message: "The Category was updated successfully!"
         });
+        this.refreshList();
       })
       .catch(e => {
         console.log(e);
       });
+  }
+  // Create Category
+  saveCategory() {
+    var data = {
+      NameCategory: this.state.currentCategory.NameCategory,
+      DescriptionCategory: this.state.currentCategory.DescriptionCategory
+    };
+
+    CategoryDataService.create(data)
+      .then(response => {
+        this.setState({
+          id: response.data.Categoryid,
+          NameCategory: response.data.NameCategory,
+          DescriptionCategory: response.data.DescriptionCategory,
+          submitted: true
+        });
+        console.log(response.data);
+        this.refreshList();
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+  // initialize new category
+  newCategory() {
+    this.setState({
+      Categoryid: null,
+      NameCategory: "",
+      DescriptionCategory: "",
+    });
   }
 
   deleteCategory() {   
@@ -112,6 +177,7 @@ class CategoryList extends Component {
       .then(response => {
         console.log(response.data);
         this.props.router.navigate('/Category/view/');
+        this.refreshList();
       })
       .catch(e => {
         console.log(e);
@@ -151,12 +217,7 @@ class CategoryList extends Component {
                   >
                     Get All async
                 </button>
-                <button 
-                    className="m-3 btn btn-sm btn-danger"
-                    onClick={this.refreshList}
-                  >
-                    refreshList
-                </button>
+              
                 <button
                     className="m-3 btn btn-sm btn-danger"
                     onClick={this.removeAllCategory}
@@ -164,11 +225,12 @@ class CategoryList extends Component {
                   Remove All
                 </button>
                 
+                
 	      </div>
         <div className="col-md-6">
             {currentCategory ? (
                 <div>  
-                  <h4>Detail List</h4>
+                  <h4>Detail Category : </h4>
                   <div>
                     <label>
                       <strong>ID:</strong>
@@ -187,43 +249,71 @@ class CategoryList extends Component {
                     </label>{" "}
                     {currentCategory.DescriptionCategory}
                   </div>
-                  
-                 <div>  
-                  <button className="m-3 btn btn-sm btn-danger">
-                    <Link
-                        to={"/Category/create"}
-                        className="badge badge-warning"
-                      >
-                        to category add
-                    </Link>
+                  <div>
+                  <br/>
+                  <h4>Modify / Add Category : </h4>
+                 
+                  <form>
+                    <div className="form-group">
+                      <label htmlFor="NameCategory">Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="NameCategory"
+                        value={this.state.currentCategory.NameCategory}
+                        onChange={this.onChangeTitle}
+                        name="NameCategory"
+                      />
+                    </div>
 
+                    <div className="form-group">
+                      <label htmlFor="DescriptionCategory">Description</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="DescriptionCategory"
+                        value={this.state.currentCategory.DescriptionCategory}
+                        onChange={this.onChangeDescription}
+                        name="DescriptionCategory"
+                      />
+                    </div>
+                  </form>
+                </div>
+                <br/>
+               
+                  
+                  <div>  
+                    <button 
+                      className="m-3 btn btn-sm btn-danger"
+                      onClick={this.updateCategory}
+                      >
+                      Update
                     </button>
 
-                
-                  <button className="m-3 btn btn-sm btn-danger">
-                    <Link
-                      to={"/Category/" + currentCategory.Categoryid}
-                      className="badge badge-warning"
-                    >
-                      Edit page
-                    </Link>
-                  </button> 
+                    <button onClick={this.saveCategory} 
+                        className="m-3 btn btn-sm btn-danger">
+                          Add /Copy
+                    </button>
 
-                  <button 
-                    className="m-3 btn btn-sm btn-danger"
-                    onClick={this.updateCategory}
-                  >
-                    update
-                </button>
+                    <button 
+                      className="m-3 btn btn-sm btn-danger"
+                      onClick={this.deleteCategory}
+                      >
+                      Delete
+                    </button>
 
-                <button 
-                    className="m-3 btn btn-sm btn-danger"
-                    onClick={this.deleteCategory}
-                  >
-                    delete
-                </button>
-              
-                </div>
+                    <button className="m-3 btn btn-sm btn-danger">
+                      <Link
+                          to={"/Category/create"}
+                          className="badge badge-warning"
+                        >
+                          Add category for admin
+                      </Link>
+
+                      </button>
+                   
+                  </div>
+
               </div>  
                   
                   ) : (
@@ -245,3 +335,9 @@ class CategoryList extends Component {
 }
 export default withRouter(CategoryList);
 
+/*
+ <h4>Add category</h4>
+                <button className="m-3 btn btn-sm btn-danger" onClick={this.newCategory}>
+                  Add
+                </button>
+*/

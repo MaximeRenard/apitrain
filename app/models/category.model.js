@@ -68,4 +68,30 @@ Category.remove = (id, result) => {
     result(null, res);
   });
 };
+
+//update
+
+Category.updateById = (id, category, result) => {
+  sql.query(
+    "UPDATE CategoryAthletes SET NameCategory = ?, DescriptionCategory = ? WHERE Categoryid = ?",
+    [category.NameCategory, category.DescriptionCategory, id],
+
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Category with the id
+        result({ kind: "not_found" }, null);
+        return;
+      }
+
+      console.log("updated Category: ", { id: id, ...Category });
+      result(null, { id: id, ...Category });
+    }
+  );
+};
 module.exports = Category;

@@ -13,6 +13,9 @@ module.exports = app => {
 
   // Delete category
   router.delete("/delete/:id", category.delete);
+
+  // Update Category with id
+  router.put("/update/:id", category.update);
   
 
   app.use('/api/Category', router);
