@@ -7,7 +7,13 @@ module.exports = app => {
   router.post("/create", coach.create);
 
   // view coach
-  router.get("/view",coach.view)
+  router.get("/view",coach.view);
+
+  // Delete all coach
+  router.delete("/delete/", coach.deleteAll);
+
+  // Delete coach
+  router.delete("/delete/:id", coach.delete);
 
   app.use('/api/Coachs', router);
 };

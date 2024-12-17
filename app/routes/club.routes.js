@@ -8,6 +8,12 @@ module.exports = app => {
   // Listing all clubs
   router.get("/view/", clubs.Allclub);
 
+  // Delete all club
+  router.delete("/delete/", clubs.deleteAll);
+
+  // Delete club
+  router.delete("/delete/:id", clubs.delete);
+
 
   app.use('/api/Clubs', router);
 };

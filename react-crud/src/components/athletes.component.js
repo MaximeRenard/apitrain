@@ -15,19 +15,22 @@ class AthletesList extends Component {
     this.retrieveAthletesbyid = this.retrieveAthletesbyid.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    //delete
+    this.removeAllAthlete = this.removeAllAthlete.bind(this);
+    this.deleteAthlete = this.deleteAthlete.bind(this);
     // Retrieve category
-    //this.removeAllCategory = this.removeAllCategory.bind(this);
+    //this.removeAllAthlete = this.removeAllAthlete.bind(this);
     
     this.state = {
       Athletes: [],
       currentAthlete: null,
-      currentIndex: -1
+      currentIndex: 0
     };
   }
  
   handleChange(event) {    this.setState({value: event.target.value});  }
   handleSubmit(event) {
-    alert('A id was submitted: ' + this.state.currentIndex);
+    alert('A id was submitted: ' + this.state.currentAthlete.Athleteid);
     event.preventDefault();
   }
 
@@ -70,12 +73,11 @@ class AthletesList extends Component {
     this.retrieveAthletes();
     this.setState({
       currentAthlete: null,
-      currentIndex: -1
+      currentIndex: 0
     });
   }
-  /*
-  removeAllCategory() {
-    CategoryDataService.deleteAll()
+  removeAllAthlete() {
+    AthletesDataService.deleteAll()
       .then(response => {
         console.log(response.data);
         this.refreshList();
@@ -84,7 +86,19 @@ class AthletesList extends Component {
         console.log(e);
       });
   }
-  */
+
+  deleteAthlete() {   
+    
+    AthletesDataService.delete(this.state.currentAthlete.Athleteid)
+      .then(response => {
+        console.log(response.data);
+        this.props.router.navigate('/Athletes/view/');
+        this.refreshList();
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
   setActiveAthlete(athlete, index) {
     this.setState({
       currentAthlete: athlete,
@@ -99,7 +113,10 @@ class AthletesList extends Component {
     
     return (
       <>
+        
         <div className="list row">
+
+              
           <div className="col-md-6">
             <h4>Athletes List</h4>
               
@@ -128,11 +145,22 @@ class AthletesList extends Component {
                 >
                   Get All
                 </button>
-                <button 
+
+                <button
                     className="m-3 btn btn-sm btn-danger"
-                    onClick={this.refreshList}
-                  >
-                    refreshList
+                    onClick={this.removeAllAthlete}
+                >
+                  Remove All
+                </button>
+
+                <button className="m-3 btn btn-sm btn-danger">
+                      <Link
+                          to={"/Athletes/create"}
+                          className="badge badge-warning"
+                        >
+                          Add Athletes
+                      </Link>
+
                 </button>
           </div>
   	      
@@ -189,6 +217,26 @@ class AthletesList extends Component {
                         to coachs page
                     </Link>
                     </button>
+
+                    <button 
+                      className="m-3 btn btn-sm btn-danger"
+                      onClick={this.deleteAthlete}
+                      >
+                      Delete
+                    </button>
+
+                
+
+                  </div>
+                  <div className="col-md-6">
+                      <form onSubmit={this.handleSubmit}>
+                         <label >ID search Athletes: 
+                        <input  type="number" name ="Categoryid" value={this.state.currentAthlete.Athleteid}/>
+                        </label>
+                        <input type="reset" value="Reset" /> 
+                         <input type="submit" value="Submit Forms" />
+                      </form>
+                        <br/>      
                   </div>
                 </div>
                   
@@ -222,64 +270,4 @@ export default withRouter(AthletesList);
                   >
                     Edit
                   </Link>
-*/
-
-/*
-<div className="col-md-6">
-                <form onSubmit={this.handleSubmit}>
-                 <label >ID search Athletes: 
-                <input  type="number" name ="Categoryid" value={this.state.currentIndex}/>
-                </label>
-                <input type="reset" value="Reset" /> 
-                 <input type="submit" value="Submit Forms" />
-                </form>
-                <br/>
-                <p>Current Value: {currentIndex}</p>
-                
-      </div>
-
-Model
-                   LastName varchar(20) NOT NULL,
-        FirstName varchar(20)NOT NULL,
-        Years int(4) NOT NULL,
-        Weight FLOAT(5,2),
-        Height FLOAT(4,2),
-        City varchar(50) NOT NULL,
-        FavoriteDistance varchar(20),
-        Clubid int NOT NULL,
-        FOREIGN KEY (Clubid) REFERENCES Clubs(Clubid),
-        Coachid int NOT NULL,
-        FOREIGN KEY (Coachid) REFERENCES Coach(Coachid),
-        Categoryid int(11) NOT NULL,
-replacement by , 
-<div className="col-md-6">
-          {currentAthletes ? (
-            <div>
-              <h4>Tutorial</h4>
-              <div>
-                <label>
-                  <strong>FirstName:</strong>
-                </label>{" "}
-                {currentAthletes.FirstName}
-              </div>
-              <div>
-                <label>
-                  <strong>Height:</strong>
-                </label>{" "}
-                {currentAthletes.Height}
-              </div>
-              <div>
-                <label>
-                  <strong>FavoriteDistance:</strong>
-                </label>{" "}
-                {currentAthletes.FavoriteDistance ? "Published" : "Pending"}
-              </div>
-
-              <Link
-                to={"Athletes/view/" + currentAthletes.Athleteid}
-                className="badge badge-warning"
-              >
-                Edit
-              </Link>
-            </div>
 */

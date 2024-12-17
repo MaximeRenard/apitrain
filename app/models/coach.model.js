@@ -42,5 +42,37 @@ Coach.viewCoach = (result) => {
     //return res;
   });
 };
+Coach.removeAll = result => {
+  sql.query("DELETE FROM Coach", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log(`deleted ${res.affectedRows} Coach`);
+    result(null, res);
+  });
+
+};
+
+Coach.remove = (id, result) => {
+  sql.query("DELETE FROM Coach WHERE Coachid = ?", id, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    if (res.affectedRows == 0) {
+      // not found Athlete with the id
+      result({ kind: "not_found" }, null);
+      return;
+    }
+
+    console.log("deleted Coach with id: ", id);
+    result(null, res);
+  });
+};
 
 module.exports = Coach;

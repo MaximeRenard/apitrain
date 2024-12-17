@@ -1,15 +1,21 @@
 import React, { Component } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 // navigate
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
 
 // react page
 import logo from './logo.svg';
-//import mylogo from './Logo_perso_plain.svg';
+//import fox from './Logo_perso.svg'
+
 import './App.css';
 
 // import table
+
+// Category
 import AthletesList from "./components/athletes.component";
+import AthletesAdd from "./components/add-athletes.component";
+// Category
 import CategoryList from "./components/category.component";
 import CategoryAdd from "./components/add-category.component";
 // Inclu in Category list
@@ -94,7 +100,7 @@ class App extends Component {
             <li className="nav-item">
               
               <Link to={"/Category/view/"} className="nav-link">
-                Category of athletes 
+                Category 
               </Link>
             </li>
 
@@ -104,16 +110,17 @@ class App extends Component {
                 Club List
               </Link>
             </li>
-            <li className="nav-item">
-              
-              <Link to={"/Athletes/view/"} className="nav-link">
-                Athletes
-              </Link>
-            </li>
+            
              <li className="nav-item">
               
               <Link to={"/Coachs/view/"} className="nav-link">
                 Coach List
+              </Link>
+            </li>
+            <li className="nav-item">
+              
+              <Link to={"/Athletes/view/"} className="nav-link">
+                Athletes
               </Link>
             </li>
             
@@ -123,7 +130,8 @@ class App extends Component {
         </nav>
         <h1> Api Foxrun</h1>
         
-         <img src="Logo_perso.svg" className="fit-picture" alt="logo" />
+         <img src="Logo_perso.svg" className="App-logo" alt="logo" />
+         <img src="{logo}" className="App-logo" alt="logo" />
         <div className="container mt-3">
           <Routes>
             <Route path="/Homeweb" element={<Homepageweb/>} />
@@ -134,6 +142,7 @@ class App extends Component {
             <Route path="/UseFetch/" element={<HookFetch/>} />
             <Route path="/Fetchexample/view/" element={<FetchCategory/>} />
             <Route path="/Athletes/view/" element={<AthletesList/>} />
+            <Route path="/Athletes/create/" element={<AthletesAdd/>} />
             <Route path="/Clubs/view/" element={<ClubList/>} />
             <Route path="/Category/view/" element={<CategoryList/>} />
             <Route path="/Category/create/" element={<CategoryAdd/>} />
@@ -158,31 +167,6 @@ class App extends Component {
 
 export default App;
 
-/*
-
- 
-
-Files
-create athletes
-add-athletes.component.js
-all athletes
-athletes.component.js
-See oneAthletes 
-athletes-get.component.js
-First test with athletes.component.js
- <li className="nav-item">
-              <Link to={"/Athletes/create"} className="nav-link">
-                Add
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to={"/Athletes/:id"} className="nav-link">
-                Get a athletes
-              </Link>
-            </li> 
-<Route path="/Athletes/create" element={<AddAthletes/>} />
-<Route path="/Athletes/:id" element={<RetAthletes/>} />
-*/
 /*
 class React_page extends Component{
   render(){

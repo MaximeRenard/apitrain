@@ -13,7 +13,7 @@ class CategoryDataService{
   AllCategory() {
     return http.get("/Category/view");
   }
-  // Get all athlete
+  // delete all category 
   deleteAll() {
     return http.delete("/Category/deleteall");
   } 

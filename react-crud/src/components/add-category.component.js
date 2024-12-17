@@ -14,10 +14,8 @@ import { withRouter } from '../common/with-router';
 
     this.state = {
       id: null,
-      title: "",
+      Name: "",
       description: "", 
-
-      submitted: false
     };
   }
 

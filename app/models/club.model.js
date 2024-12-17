@@ -40,5 +40,35 @@ Club.allclubs = (result) => {
     result(null, res);
   });
 };
+Club.removeAll = result => {
+  sql.query("DELETE FROM Clubs", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log(`deleted ${res.affectedRows} Club`);
+    result(null, res);
+  });
+};
+Club.remove = (id, result) => {
+  sql.query("DELETE FROM Clubs WHERE Clubid = ?", id, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    if (res.affectedRows == 0) {
+      // not found Athlete with the id
+      result({ kind: "not_found" }, null);
+      return;
+    }
+
+    console.log("deleted Club with id: ", id);
+    result(null, res);
+  });
+};
 
 module.exports = Club;

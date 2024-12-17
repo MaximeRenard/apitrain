@@ -11,3 +11,17 @@ const Result = function(result) {
   this.Timerace = result.Timerace;
   
 };
+// Function for Athlete table      
+Result.create = (newResult, result) => {
+  sql.query("INSERT INTO ResultAthletesRace SET ?", newResult, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    console.log("created Result: ", { id: res.insertId, ...newResult });
+    result(null, { id: res.insertId, ...newResult });
+  });
+};
+module.exports = Result;
