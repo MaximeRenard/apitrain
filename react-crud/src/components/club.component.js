@@ -14,6 +14,12 @@ class ClubList extends Component {
     this.refreshList = this.refreshList.bind(this);
     this.setActiveClub = this.setActiveClub.bind(this);
     
+    // update
+    //this.onChangeTitle = this.onChangeTitle.bind(this);
+    //this.onChangeDescription = this.onChangeDescription.bind(this);
+    // Create
+    //this.saveClub = this.saveClub.bind(this);
+    //this.newClub = this.newClub.bind(this);
 
     this.state = {
       clubid: [],
@@ -59,6 +65,8 @@ class ClubList extends Component {
     });
   }
 
+   
+
 
 
   render() {
@@ -81,7 +89,7 @@ class ClubList extends Component {
                     onClick={() => this.setActiveClub(club, index)}
                     key={index}
                   >
-	               <p><strong>club {club.Clubid}: </strong> {club.Name} : {club.City} </p>
+	               <p><strong>club {club.Clubid}: </strong> {club.Name} : {club.City} : {club.Description} </p>
 	                </li>
 
                 ))}
@@ -98,6 +106,15 @@ class ClubList extends Component {
                   >
                     refreshList
                 </button>
+
+                <button className="m-3 btn btn-sm btn-danger">
+                      <Link
+                          to={"/Clubs/create"}
+                          className="badge badge-warning"
+                        >
+                          Add club for admin
+                      </Link>
+                </button>
                 
 	      </div>  
      
@@ -106,10 +123,3 @@ class ClubList extends Component {
   }
 }
 export default withRouter(ClubList);
-/*
-                   Clubid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        Name varchar(20) NOT NULL,
-        City varchar(50) NOT NULL,
-        Address varchar(50),
-        Description varchar(255)
-*/

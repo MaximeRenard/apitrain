@@ -101,3 +101,35 @@ const result = new Result({
     else res.send(data);
   });
 };
+exports.findResultRace = (req, res) => {
+  Result.viewRaceResult(req.params.id, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found resull of race with id ${req.params.id}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Error retrieving race result with id " + req.params.id
+        });
+      }
+    } else res.send(data);
+  });
+};
+
+exports.findResultAthlete = (req, res) => {
+  Result.viewRaceAthlete(req.params.id, (err, data) => {
+    if (err) {
+      if (err.kind === "not_found") {
+        res.status(404).send({
+          message: `Not found result of athletes with id ${req.params.id}.`
+        });
+      } else {
+        res.status(500).send({
+          message: "Error retrieving race of athletes with id " + req.params.id
+        });
+      }
+    } else res.send(data);
+  });
+};
+

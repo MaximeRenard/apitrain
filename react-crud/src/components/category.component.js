@@ -310,7 +310,7 @@ class CategoryList extends Component {
                           Add category for admin
                       </Link>
 
-                      </button>
+                    </button>
                    
                   </div>
 

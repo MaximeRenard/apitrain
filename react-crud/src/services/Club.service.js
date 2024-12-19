@@ -4,7 +4,7 @@ class ClubDataService{
 
   // Create data
   create(data) {
-    return http.post("/Club/create", data);
+    return http.post("/Clubs/create", data);
   }
   // Get all athlete
   viewclub() {

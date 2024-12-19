@@ -258,16 +258,3 @@ class AthletesList extends Component {
 }
 export default withRouter(AthletesList);
 
-/*
-+ currentAthlete.Athleteid
-<div className="col-md-6">
-          
-        
-      </div> 
-<Link
-                    to={"Athletes/view/" + currentAthletes.Athleteid}
-                    className="badge badge-warning"
-                  >
-                    Edit
-                  </Link>
-*/

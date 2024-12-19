@@ -81,7 +81,7 @@ class CoachList extends Component {
                     onClick={() => this.setActiveCoach(coach, index)}
                     key={index}
                   >
-	               <p><strong>coach {coach.Coachid}: </strong> {coach.Name} : {coach.Description} </p>
+	               <p><strong>coach {coach.Coachid}: </strong> {coach.Name} : {coach.Years}: {coach.Clubid} </p>
 	                </li>
                 ))}
             </ul>
@@ -97,6 +97,16 @@ class CoachList extends Component {
                   >
                     refreshList
                 </button>
+
+                <button className="m-3 btn btn-sm btn-danger">
+                    <Link
+                        to={"/Coachs/create"}
+                        className="badge badge-warning"
+                      >
+                        Add Coach 
+                    </Link>
+                    
+                    </button>
                 
 	      </div>  
      

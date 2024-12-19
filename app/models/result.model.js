@@ -24,4 +24,36 @@ Result.create = (newResult, result) => {
     result(null, { id: res.insertId, ...newResult });
   });
 };
+// View race result
+Result.viewRaceResult = (id,result) => {
+  let query = "SELECT * FROM ResultAthletesRace WHERE Raceid = ?";
+
+  sql.query(query,id, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("Coach: ", res);
+    result(null, res);
+    
+  });
+};
+Result.viewRaceAthlete = (id,result) => {
+  let query = "SELECT * FROM ResultAthletesRace WHERE Athleteid = ?";
+
+  sql.query(query,id, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("Athletes: ", res);
+    result(null, res);
+    
+  });
+};
+
 module.exports = Result;

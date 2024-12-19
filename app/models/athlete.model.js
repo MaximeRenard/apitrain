@@ -77,8 +77,8 @@ Athlete.getAllAthletes = (result) => {
   });
 };
 
-Athlete.getAllCategory = result => {
-  sql.query("SELECT * FROM Athletes WHERE Categoryid = 3", (err, res) => {
+Athlete.getAllCategory = (id, result) => {
+  sql.query("SELECT * FROM Athletes WHERE Categoryid = ?",id, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);

@@ -1,6 +1,6 @@
 module.exports = app => {
   const race = require("../controllers/race.controller.js");
-
+ 
   var router = require("express").Router();
 
   // Create a new race
@@ -17,6 +17,13 @@ module.exports = app => {
 
   // Delete race
   router.delete("/delete/:id", race.delete);
+
+  // View race result
+  router.get("/result/:id", race.findResultRace);
+
+  // View result athlete
+  router.get("/result/athlete/:id", race.findResultAthlete);
+  
 
   app.use('/api/race', router);
 };

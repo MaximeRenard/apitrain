@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Routes, Route, Link } from "react-router-dom";
-// navigate
-import "../node_modules/bootstrap/dist/css/bootstrap.css";
-
+// Base CSS 
+//import "../node_modules/bootstrap/dist/css/bootstrap.css";
+// Modif CSS
+import "./bootstrap.css";
 
 // react page
 import logo from './logo.svg';
-//import fox from './Logo_perso.svg'
 
 import './App.css';
 
@@ -21,8 +21,13 @@ import CategoryAdd from "./components/add-category.component";
 // Inclu in Category list
 //import Categorydelete from "./components/delete-category.component";
 import ClubList from "./components/club.component";
+import ClubAdd from "./components/add-club.component";
+
 import CoachList from "./components/coach.component";
-// import RaceList from "./components/race.component";
+import CoachAdd from "./components/add-coach.component";
+
+// Race
+import RaceList from "./components/race.component";
 // import ResultList from "./components/Result.component";
 
 // Home Tutoriel
@@ -123,6 +128,13 @@ class App extends Component {
                 Athletes
               </Link>
             </li>
+
+            <li className="nav-item">
+              
+              <Link to={"/Race/view/"} className="nav-link">
+                Race
+              </Link>
+            </li>
             
              
            
@@ -130,8 +142,7 @@ class App extends Component {
         </nav>
         <h1> Api Foxrun</h1>
         
-         <img src="Logo_perso.svg" className="App-logo" alt="logo" />
-         <img src="{logo}" className="App-logo" alt="logo" />
+         <img src="Logo_perso.svg" className="App-logo" alt="logo fox " />
         <div className="container mt-3">
           <Routes>
             <Route path="/Homeweb" element={<Homepageweb/>} />
@@ -144,9 +155,12 @@ class App extends Component {
             <Route path="/Athletes/view/" element={<AthletesList/>} />
             <Route path="/Athletes/create/" element={<AthletesAdd/>} />
             <Route path="/Clubs/view/" element={<ClubList/>} />
+            <Route path="/Clubs/create/" element={<ClubAdd/>} />
             <Route path="/Category/view/" element={<CategoryList/>} />
             <Route path="/Category/create/" element={<CategoryAdd/>} />
             <Route path="/Coachs/view/" element={<CoachList/>} />
+            <Route path="/Coachs/create/" element={<CoachAdd/>} />
+            <Route path="/Race/view/" element={<RaceList/>} />
             
             
             
@@ -192,6 +206,4 @@ class React_page extends Component{
 
   }
 }
-
-//export default React_page;
 */
