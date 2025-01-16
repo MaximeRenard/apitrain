@@ -137,7 +137,7 @@ class AthletesList extends Component {
                   </li>
 
             
-                ))};
+                ))}
               </ul>
                 <button 
                   className="m-3 btn btn-sm btn-danger"
@@ -240,12 +240,12 @@ class AthletesList extends Component {
                   </div>
                 </div>
                   
-                  ) : (
+                ) : (
 
-                  <div>
-                    <br />
-                    <p>Please click on a Tutorial...</p>
-                  </div>
+                <div>
+                  <br />
+                  <p>Please click on a Athlete...</p>
+                </div>
             
             )}
           </div>

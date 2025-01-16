@@ -1,0 +1,130 @@
+# POST http://127.0.0.1:808O/api/Athletes
+{
+	"FirstName" : "Maxime",
+	"LastName": "Renard",
+	"Address" : "stadium",
+	"City" : "Angers"
+}
+# {
+    "Athleteid": 2,
+    "LastName": "Renard",
+    "FirstName": "Max",
+    "Address": "stadium",
+    "City": "Angers"
+}
+# Get  all Athletes
+http://127.0.0.1:8080/api/Athletes/
+# Get specific athletes
+http://127.0.0.1:8080/api/Athletes/1/
+Warning define Athlete id
+{
+    "Athleteid": 1,
+    "LastName": "Renard",
+    "FirstName": "Maxime",
+    "Address": "stadium",
+    "City": "Angers"
+}
+# Update 
+http://127.0.0.1:8080/api/Athletes/2/
+{
+    "LastName": "Renard",
+    "FirstName": "Max200",
+    "Address": "stadium",
+    "City": "Angers"
+}
+
+
+# Delete by id 
+http://127.0.0.1:8080/api/Athletes/2/
+ok
+
+# All delete
+http://127.0.0.1:8080/api/Athletes/
+
+
+# 21/10/22 New Database
+# POST http://127.0.0.1:8080/api/Athletes/create
+{
+    "FirstName" : "Maxime",
+    "LastName": "RENARD",
+    "Years": 28,
+    "Weight":63.5,
+    "Height" : 1.75,
+    "City" : "Angers",
+    "FavoriteDistance" : "10km",
+    "ClubsID" : 1,
+    "CoachID": 1,
+    "Categoryid" :2
+}
+# Pb foreign key
+# Create Club
+# POST http://127.0.0.1:8080/api/Clubs/create
+
+{
+    "Name": "club1",
+    "City": "Angers",
+    "Description": "Lien site"
+}
+{"id":1,"Name":"club1","City":"Angers","Description":"Lien site"}
+# "Address", "Description"Null
+# Create Coach
+# POST http://127.0.0.1:8080/api/Coachs/create
+const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
+        Coachid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        Name varchar(20) NOT NULL,
+        Years int(4) NOT NULL,
+        City varchar(50) NOT NULL,
+        Description varchar(255),
+        ClubsID int,
+        CONSTRAINT FK_club FOREIGN KEY (ClubsID) REFERENCES Clubs(ClubsID)
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
+{
+    "Name": "name1",
+    "Years": 39
+    "City": "Angers",
+    "Description": "Running cool",
+    "ClubsID": 1
+}
+# Create Category
+# POST http://127.0.0.1:8080/api/Category/create
+const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes( 
+        Categoryid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        NameCategory varchar(5) NOT NULL,
+        DescriptionCategory varchar(55) NOT NULL
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
+
+{
+    "NameCategory": "Senior",
+    "DescriptionCategory": "22-35 years old"
+}
+# Create athletes
+# http://127.0.0.1:8080/api/Athletes/create/
+{
+    "FirstName" : "Maxime",
+    "LastName": "RENARD",
+    "Years": 28,
+    "Weight":63.5,
+    "Height" : 1.75,
+    "City" : "Angers",
+    "FavoriteDistance" : "10km",
+    "ClubsID" : 1,
+    "CoachID": 1,
+    "Categoryid" :2
+}
+# See Athletes
+# Athlete from Angers
+http://127.0.0.1:8080/api/Athletes/city
+{
+    "id": 1,
+    "LastName": "RENARD",
+    "FirstName": "Maxime",
+    "Years": 28,
+    "Weight": 63.5,
+    "Height": 1.75,
+    "City": "Angers",
+    "FavoriteDistance": "10km",
+    "ClubsID": 1,
+    "CoachID": 1,
+    "Categoryid": 1
+}
+# Views id

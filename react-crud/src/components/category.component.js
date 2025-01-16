@@ -316,17 +316,17 @@ class CategoryList extends Component {
 
               </div>  
                   
-                  ) : (
+              ) : (
 
-                  <div>
-                    <br />
-                    <p>Please click on a Category...</p>
-                  </div>
+              <div>
+                <br />
+                <p>Please click on a Category...</p>
+              </div>
                 
                   
             
             )}
-          </div>
+        </div>
 
       </div>
     </>

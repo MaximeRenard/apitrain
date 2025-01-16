@@ -11,7 +11,7 @@ const Race = function(race) {
   this.Distance = race.Distance;
   this.City = race.City;
   this.Description = race.Description;
-  this.ClubsID = race.ClubsID;
+  this.Clubid = race.Clubid;
   
 };
 
@@ -40,7 +40,7 @@ Race.viewRace = (result) => {
       return;
     }
 
-    console.log("Coach: ", res);
+    console.log("Race: ", res);
     result(null, res);
     
   });

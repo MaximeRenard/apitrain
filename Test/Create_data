@@ -1,0 +1,110 @@
+# Script our la creation de données test
+
+Pour le backend avec Postman --disable-gpu
+Pour le front end à partir des formulaires 
+// Database
+Delete TABLE
+
+# Category
+const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes( 
+        Categoryid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        NameCategory varchar(20) NOT NULL,
+        DescriptionCategory varchar(55) NOT NULL
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
+## Link : http://127.0.0.1:8080/api/Category/create
+{
+    
+}
+## DELETE  http://127.0.0.1:8080/api/Category/delete/
+# Club
+const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
+        Clubid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        Name varchar(20) NOT NULL,
+        City varchar(50) NOT NULL,
+        Address varchar(50),
+        Description varchar(255)
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
+## Link : http://127.0.0.1:8080/api/Clubs/create
+{
+    
+}
+## DELETE  http://127.0.0.1:8080/api/Clubs/delete/
+# Coach
+const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
+        Coachid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        Name varchar(20) NOT NULL,
+        Years int(4) NOT NULL,
+        City varchar(50) NOT NULL,
+        Description varchar(255),
+        Clubid int NOT NULL,
+        CONSTRAINT FK_club FOREIGN KEY (Clubid) REFERENCES Clubs(Clubid)
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
+
+## Link : http://127.0.0.1:8080/api/Coachs/create
+{
+    
+}
+## DELETE 
+# Athlete
+const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes( 
+        Athleteid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        LastName varchar(20) NOT NULL,
+        FirstName varchar(20)NOT NULL,
+        Years int(4) NOT NULL,
+        Weight FLOAT(5,2),
+        Height FLOAT(4,2),
+        City varchar(50) NOT NULL,
+        FavoriteDistance varchar(20),
+        Clubid int NOT NULL,
+        FOREIGN KEY (Clubid) REFERENCES Clubs(Clubid),
+        Coachid int NOT NULL,
+        FOREIGN KEY (Coachid) REFERENCES Coach(Coachid),
+        Categoryid int(11) NOT NULL,
+        FOREIGN KEY (Categoryid) REFERENCES CategoryAthletes(Categoryid)
+      
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
+## Link : http://127.0.0.1:8080/api/Athletes/create
+{
+    "FirstName" : "Maxime",
+    "LastName": "Renard",
+    "Address" : "stadium",
+    "City" : "Angers"
+}
+# Race
+const tablerace = `CREATE TABLE IF NOT EXISTS Race(
+        Raceid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        Name varchar(20) NOT NULL,
+        DateRace DATE NOT NULL,
+        Distance DOUBLE(4,1) NOT NULL,
+        City varchar(50) NOT NULL,
+        Description varchar(255),
+        Clubid int NOT NULL,
+        CONSTRAINT FK_club_race FOREIGN KEY (Clubid) REFERENCES Clubs(Clubid)
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
+
+// SELECT DATE_FORMAT("2018-09-24", "%M %d %Y"); and DATE - format YYYY-MM-DD
+
+## Link : POST http://127.0.0.1:8080/api/race/create/
+{
+    "Name" : "Semi de Nuaille",
+  "DateRace" : "31/03/2025"
+  "Distance" : 21
+  "City" : "Cholet"
+  "Description" : "Label or ffa",
+  "Clubid" : 6
+}
+## DELETE  http://127.0.0.1:8080/api/race/delete/
+# result
+const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace( 
+        Athleteid int(11) NOT NULL,
+        Raceid int(11) NOT NULL,
+        Timerace TIME NOT NULL,
+        FOREIGN KEY (Raceid) REFERENCES Race(RaceID),
+        FOREIGN KEY (Athleteid) REFERENCES Athletes(Athleteid)
+      
+      )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
+
+## Link : http://127.0.0.1:8080/api/
+{
+    
+}

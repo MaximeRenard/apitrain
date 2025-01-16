@@ -12,12 +12,12 @@ var corsOptions = {
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
-/*
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
-});*/
+});
 app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
@@ -35,7 +35,7 @@ app.get('/api/Home/', function(req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 // Home part Welcome page 
-//require("./app/routes/home.routes.js")(app);
+require("./app/routes/home.route.js")(app);
 // Category part
 require("./app/routes/category.routes.js")(app);
 // Club part

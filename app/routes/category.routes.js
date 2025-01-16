@@ -9,7 +9,7 @@ module.exports = app => {
   router.get("/view", category.AllCategory);
 
   // Delete all category
-  router.delete("/deleteall", category.deleteAll);
+  router.delete("/delete", category.deleteAll);
 
   // Delete category
   router.delete("/delete/:id", category.delete);

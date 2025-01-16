@@ -23,7 +23,7 @@ class ClubList extends Component {
 
     this.state = {
       clubid: [],
-      currentclub: 'default',
+      currentClub: 'default',
   	  currentIndex: 'default'
     };
   }
@@ -53,14 +53,14 @@ class ClubList extends Component {
   refreshList() {
     this.retrieveclub();
     this.setState({
-      currentclub: null,
+      currentClub: null,
       currentIndex: 0
     });
   }
 
   setActiveClub(club, index) {
     this.setState({
-      currentclub: club,
+      currentClub: club,
       currentIndex: index  
     });
   }
@@ -70,9 +70,10 @@ class ClubList extends Component {
 
 
   render() {
-    const { clubid,currentclub, currentIndex } = this.state;
+    const { clubid,currentClub, currentIndex } = this.state;
 
     return (
+    <>
       <div className="list row">
 	      <div className="col-md-6">
 	          <h4>Club List</h4>
@@ -116,9 +117,53 @@ class ClubList extends Component {
                       </Link>
                 </button>
                 
-	      </div>  
-     
+	      </div>
+        <div className="col-md-6">
+            {currentClub ? (
+                <div>  
+                  <h4>Detail Category : </h4>
+                  <div>
+                    <label>
+                      <strong>ID:</strong>
+                    </label>{" "}
+                    {currentClub.Clubid}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Name:</strong>
+                    </label>{" "}
+                    {currentClub.Name}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Address:</strong>
+                    </label>{" "}
+                    {currentClub.Address}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>City:</strong>
+                    </label>{" "}
+                    {currentClub.City}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Description:</strong>
+                    </label>{" "}
+                    {currentClub.Description}
+                  </div>
+                </div>
+                ) : (
+
+              <div>
+                <br />
+                <p>Please click on a Club...</p>
+              </div>
+              )}
+        </div> 
+       
       </div>
+    </>
     );
   }
 }

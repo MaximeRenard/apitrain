@@ -19,7 +19,7 @@ exports.create = (req, res) => {
     Distance : req.body.Distance,
     City : req.body.City,
     Description : req.body.Description,
-    ClubsID : req.body.ClubsID
+    Clubid : req.body.Clubid
   });
   
   // Save race in the database

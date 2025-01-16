@@ -21,12 +21,22 @@ mysql> DROP TABLE Clubs;
 ### 22/10 Validation of first model test with Postman
 #### Next Insert data in race and ResultAthletesRace
 ## 02/12 Front end request GET with axios to back server
+## Lancement
+node serveur.js
+## Postman
+Postman --disable-gpu
 ## Front End 
 ### React
-#### Nexstep Add Table Club and request PUT
+#### Table Club and request PUT
 #### More CSS
+## Lancement
+cd react-crud
+npm start 
+## Wireshark
+### Voir mecanisme de requete
+sudo wireshark
 ### Apply effect on event race
 ### Authors : Maxime RENARD
-#### Date 03/12/24
+#### Date 15/01/25
 ##### Dvt : Front and site with carreer
 ###### Connexion

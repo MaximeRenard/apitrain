@@ -15,7 +15,7 @@ class CategoryDataService{
   }
   // delete all category 
   deleteAll() {
-    return http.delete("/Category/deleteall");
+    return http.delete("/Category/delete");
   } 
   // Delete a single category with id
   delete(id) {

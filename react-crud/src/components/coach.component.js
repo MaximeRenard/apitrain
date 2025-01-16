@@ -65,6 +65,7 @@ class CoachList extends Component {
     const { coachid,currentCoach, currentIndex } = this.state;
 
     return (
+    <>
       <div className="list row">
 	      <div className="col-md-6">
 	          <h4>Coach List</h4>
@@ -108,9 +109,59 @@ class CoachList extends Component {
                     
                     </button>
                 
-	      </div>  
+	      </div>
+        <div className="col-md-6">
+            {currentCoach ? (
+                <div>  
+                  <h4>Detail Category : </h4>
+                  <div>
+                    <label>
+                      <strong>ID:</strong>
+                    </label>{" "}
+                    {currentCoach.Coachid}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Name:</strong>
+                    </label>{" "}
+                    {currentCoach.Name}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Years:</strong>
+                    </label>{" "}
+                    {currentCoach.Years}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>City:</strong>
+                    </label>{" "}
+                    {currentCoach.City}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Description:</strong>
+                    </label>{" "}
+                    {currentCoach.Description}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Club:</strong>
+                    </label>{" "}
+                    {currentCoach.Clubid}
+                  </div>
+                </div>
+                ) : (
+
+              <div>
+                <br />
+                <p>Please click on a Coach...</p>
+              </div>
+              )}
+        </div>  
      
       </div>
+    </>
     );
   }
 }

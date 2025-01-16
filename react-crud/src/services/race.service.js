@@ -6,9 +6,9 @@ class RaceDataService{
   createrace(data) {
     return http.post("/race/create", data);
   }
-  // Get all athlete
-  viewrace(id) {
-    return http.get(`/race/result/${id}`,id);
+  // Get all race
+  viewrace() {
+    return http.get("/race/view");
   }
 
 }  

@@ -9,9 +9,9 @@ const connection = mysql.createConnection({
   database: dbConfig.DB
 });
 
-// Creataion in order
+// Creation in order
 
-// Database
+// CREATE Database
 const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes( 
         Categoryid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         NameCategory varchar(20) NOT NULL,
@@ -75,15 +75,20 @@ const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace(
       
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
 
-
-
+// Mettre à jour et delete all tables before
+const delete_tables = `DROP TABLE IF EXISTS ResultAthletesRace,Athletes,Race,CategoryAthletes,Coach,Clubs;`
 // Create DB and connection
-
 // open the MySQL connection
 connection.connect(function(err) {
   if (err) throw err;
   console.log("Successfully connected to the database.");
-  
+  // Delete all tables
+  var reinitialize = delete_tables;
+  connection.query(reinitialize, function (err, result) {
+    if (err) throw err;
+    console.log("Delete All tables");
+  });
+
   // Create Table category
   var category = tableCategory; 
   connection.query(category, function (err, result) {
@@ -121,7 +126,7 @@ connection.connect(function(err) {
     if (err) throw err;
     console.log("Table Athletes-Race created");
   });
-  console.log("All Table  are created or existed.");
+
 });
 
 
