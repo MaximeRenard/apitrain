@@ -10,6 +10,15 @@ class ClubDataService{
   viewclub() {
     return http.get("/Clubs/view");
   }
+  // delete all Club
+  deleteAll() {
+    return http.delete("/Clubs/delete");
+  } 
+  // Delete a single club with id
+  delete(id) {
+    return http.delete(`/Clubs/delete/${id}`);
+  }
+
 
 }  
 

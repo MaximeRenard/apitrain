@@ -30,6 +30,4 @@ class CategoryDataService{
 
 }
 
-
-
 export default new CategoryDataService();

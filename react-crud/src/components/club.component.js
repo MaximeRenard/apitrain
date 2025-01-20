@@ -20,6 +20,9 @@ class ClubList extends Component {
     // Create
     //this.saveClub = this.saveClub.bind(this);
     //this.newClub = this.newClub.bind(this);
+    // delete
+    this.removeAllClub = this.removeAllClub.bind(this);
+    this.deleteClub = this.deleteClub.bind(this);
 
     this.state = {
       clubid: [],
@@ -63,6 +66,28 @@ class ClubList extends Component {
       currentClub: club,
       currentIndex: index  
     });
+  }
+  removeAllClub() {
+    ClubDataService.deleteAll()
+      .then(response => {
+        console.log(response.data);
+        this.refreshList();
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+  deleteClub() {   
+    
+    ClubDataService.delete(this.state.currentClub.Clubid)
+      .then(response => {
+        console.log(response.data);
+        this.props.router.navigate('/Clubs/view/');
+        this.refreshList();
+      })
+      .catch(e => {
+        console.log(e);
+      });
   }
 
    
@@ -116,6 +141,12 @@ class ClubList extends Component {
                           Add club for admin
                       </Link>
                 </button>
+                <button
+                    className="m-3 btn btn-sm btn-danger"
+                    onClick={this.removeAllClub}
+                >
+                  Remove All
+                </button>
                 
 	      </div>
         <div className="col-md-6">
@@ -153,6 +184,8 @@ class ClubList extends Component {
                     {currentClub.Description}
                   </div>
                 </div>
+
+                
                 ) : (
 
               <div>
@@ -160,6 +193,12 @@ class ClubList extends Component {
                 <p>Please click on a Club...</p>
               </div>
               )}
+              <button 
+                      className="m-3 btn btn-sm btn-danger"
+                      onClick={this.deleteClub}
+                      >
+                      Delete
+              </button>
         </div> 
        
       </div>

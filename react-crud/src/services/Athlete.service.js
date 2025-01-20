@@ -17,7 +17,7 @@ class AthletesDataService{
   deleteAll() {
     return http.delete("/Athletes/delete");
   } 
-  // Delete a single category with id
+  // Delete a single athlete with id
   delete(id) {
     return http.delete(`/Athletes/delete/${id}`);
   }

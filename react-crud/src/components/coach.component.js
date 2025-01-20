@@ -13,7 +13,9 @@ class CoachList extends Component {
     this.retrievecoach = this.retrievecoach.bind(this);
     this.refreshList = this.refreshList.bind(this);
     this.setActiveCoach = this.setActiveCoach.bind(this);
-    
+    // Delete
+    this.removeAllCoach = this.removeAllCoach.bind(this);
+    this.deleteCoach = this.deleteCoach.bind(this);
 
     this.state = {
       coachid: [],
@@ -57,6 +59,28 @@ class CoachList extends Component {
       currentCoach: coach,
       currentIndex: index  
     });
+  }
+  removeAllCoach() {
+    CoachDataService.deleteAll()
+      .then(response => {
+        console.log(response.data);
+        this.refreshList();
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+  deleteCoach() {   
+    
+    CoachDataService.delete(this.state.currentCoach.Coachid)
+      .then(response => {
+        console.log(response.data);
+        this.props.router.navigate('/Coachs/view/');
+        this.refreshList();
+      })
+      .catch(e => {
+        console.log(e);
+      });
   }
 
 
@@ -107,7 +131,13 @@ class CoachList extends Component {
                         Add Coach 
                     </Link>
                     
-                    </button>
+                </button>
+                <button
+                    className="m-3 btn btn-sm btn-danger"
+                    onClick={this.removeAllCoach}
+                >
+                  Remove All
+                </button>
                 
 	      </div>
         <div className="col-md-6">
@@ -158,7 +188,14 @@ class CoachList extends Component {
                 <p>Please click on a Coach...</p>
               </div>
               )}
-        </div>  
+              <button 
+              className="m-3 btn btn-sm btn-danger"
+              onClick={this.deleteCoach}
+              >
+              Delete
+        </button>  
+        </div>
+        
      
       </div>
     </>
@@ -166,13 +203,3 @@ class CoachList extends Component {
   }
 }
 export default withRouter(CoachList);
-
-/*
-                 Coachid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        Name varchar(20) NOT NULL,
-        Years int(4) NOT NULL,
-        City varchar(50) NOT NULL,
-        Description varchar(255),
-        Clubid int NOT NULL,
-
-*/

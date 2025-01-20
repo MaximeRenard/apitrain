@@ -13,9 +13,16 @@ const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes(
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
 ## Link : http://127.0.0.1:8080/api/Category/create
 {
-    
+    "NameCategory" : "Senior",
+    "DescriptionCategory" : "22-35 year's old"
 }
+{
+    "NameCategory" : "M0",
+    "DescriptionCategory" : "35-40 years old"
+}
+
 ## DELETE  http://127.0.0.1:8080/api/Category/delete/
+## View http://127.0.0.1:8080/api/Category/view/
 # Club
 const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
         Clubid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -26,9 +33,14 @@ const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
 ## Link : http://127.0.0.1:8080/api/Clubs/create
 {
+        "Name": "E2A",
+        "City" : "Angers",
+        "Address": "OMS",
+        "Description":"Club maitre"
     
 }
 ## DELETE  http://127.0.0.1:8080/api/Clubs/delete/
+## View    http://127.0.0.1:8080/api/Clubs/view/
 # Coach
 const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
         Coachid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -42,9 +54,15 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
 
 ## Link : http://127.0.0.1:8080/api/Coachs/create
 {
+        "Name":"Coaching",
+        "Years":30,
+        "City":"Angers",
+        "Description" : "Route",
+        "Clubid":1
     
 }
-## DELETE 
+## DELETE http://127.0.0.1:8080/api/Coachs/delete
+## View http://127.0.0.1:8080/api/Coachs/view
 # Athlete
 const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes( 
         Athleteid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -64,12 +82,21 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
       
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
 ## Link : http://127.0.0.1:8080/api/Athletes/create
+
 {
     "FirstName" : "Maxime",
-    "LastName": "Renard",
-    "Address" : "stadium",
-    "City" : "Angers"
+    "LastName": "RENARD",
+    "Years": 28,
+    "Weight":63.5,
+    "Height" : 1.75,
+    "City" : "Angers",
+    "FavoriteDistance" : "10km",
+    "Clubid" : 1,
+    "Coachid": 1,
+    "Categoryid" :2
 }
+## DELETE http://127.0.0.1:8080/api/Athletes/delete
+## View : http://127.0.0.1:8080/api/Athletes/View
 # Race
 const tablerace = `CREATE TABLE IF NOT EXISTS Race(
         Raceid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -87,12 +114,13 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
 ## Link : POST http://127.0.0.1:8080/api/race/create/
 {
     "Name" : "Semi de Nuaille",
-  "DateRace" : "31/03/2025"
-  "Distance" : 21
-  "City" : "Cholet"
+  "DateRace" : "2025-03-30",
+  "Distance" : 21.1,
+  "City" : "Cholet",
   "Description" : "Label or ffa",
-  "Clubid" : 6
+  "Clubid" : 1
 }
+## View http://127.0.0.1:8080/api/race/view/
 ## DELETE  http://127.0.0.1:8080/api/race/delete/
 # result
 const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace( 
@@ -104,7 +132,12 @@ const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace(
       
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
 
-## Link : http://127.0.0.1:8080/api/
+## Link : POST http://127.0.0.1:8080/api/race/result
+## View result race http://127.0.0.1:8080/api/race/result/:id
+## View result Athlete http://127.0.0.1:8080/api/race/result/athlete/:id
 {
+        "Athleteid":1,
+        "Raceid":1,
+        "Timerace":"00:34:39"
     
 }

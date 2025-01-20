@@ -22,43 +22,34 @@ const IncrementButtonless = (props) => {
   );
 }
 // Hook Context function
-function Component2() {
+function information() {
   return (
     <>
-      <h2>Component 2</h2>
-      <Component3 />
+      <h2>Your information 2</h2>
+      <News />
     </>
   );
 }
 
-function Component3() {
+function News() {
   return (
     <>
-      <h3>Component 3</h3>
-      <Component4 />
+      <h3>Athletism news</h3>
+       <h4>News 2O25 </h4>
+       <Nextrace />
+    </>
+  );
+}
+function Nextrace() {
+  return (
+    <>
+      <h3>Nextrace in 2035</h3>
+        <h4>Calendar</h4>
+       <p>30/03/20255: Semi de Nuaillé</p>
     </>
   );
 }
 
-function Component4() {
-  return (
-    <>
-      <h4>Component 4</h4>
-      <Component5 />
-    </>
-  );
-}
-
-function Component5() {
-  const user = useContext(UserContext);
-
-  return (
-    <>
-      <h5>Component 5</h5>
-      <h2>{`Hello ${user} again!`}</h2>
-    </>
-  );
-}
 // Welcome page
 function Welcomepage(){
 	const [num, setNum] = useState(0)
@@ -83,7 +74,7 @@ function Welcomepage(){
 	const nameId = useId();
 	// Use context
 	// Component 1 function in html
-	const [userName, setUser] = useState("Jesse Hall");
+	const [userName, setUser] = useState("Athletes");
 	const previousUsername = useRef("");
 	useEffect(() => {
     previousUsername.current = userName;
@@ -110,62 +101,52 @@ function Welcomepage(){
 	return(
 		<html>
 		<body>
+    <h2>{`Welcome in ${userName} in apitrain web page!`}</h2>
+    <br/>
 		<UserContext.Provider value={userName}>
-      <h2>{`Hello ${userName} with Hook tutoriel and context!`}</h2>
-      <Component2 userName={userName} />
+    <label htmlFor={nameId}>Enter Your name:
+        <input id={nameId} type="text"  value={userName} readOnly={false} onChange={(e) =>setUser(e.target.value)}/>
+        </label>
+      
+      <information userName={userName} />
     </UserContext.Provider>   
 		
-			 
-				 <label htmlFor={nameId}>Your name:
-				<input id={nameId} type="text"  value={userName} readOnly={false} onChange={(e) =>setUser(e.target.value)}/>
-				</label>  
-				<p>Current Value: {userName}</p>
-      			<p>Previous Value: {previousUsername.current}</p>
-				 {userName !== '' && <p>Your name is {userName}.</p>}<br/>
+		<p>Previous name: {previousUsername.current}</p>
+		{userName !== '' && <p>Your name is {userName}.</p>}<br/>
 				
-				<button type="button" onClick={(e) => setUser("Trail Apocalypse")}>Trail</button>
+		<button type="button" onClick={(e) => setUser("Maxime")}>Author name</button>
 	      	
-	      	<p> Set user work in all html document</p>
-		
-			<div className="App">
-				<p> Nombre de visiteur : {num} </p>
-	     		 	<p> Cliquez sur le bouton pour indiquer votre présence : </p>
-	      			<IncrementButtonmore handleClick={handleClickmore} />
-	      			<IncrementButtonless handleClick={handleClickless} />
-	    	</div>
-	<h3>Simply forms</h3>
+	<br/>	
+	<h3>Your level</h3>
 	<form onSubmit={e => {
       e.preventDefault();
       alert('Submitting!');
     }}>
       <p>
-        Radio buttons:
+        Your Level :
+
         <label>
-          <input type="radio" name="myRadio" value="option1" />
-          Option 1
+          <input type="radio" name="myRadio" value="Bon" />
+          Bon
         </label>
         <label>
-          <input type="radio" name="myRadio" value="option2" />
-          Option 2
+          <input type="radio" name="myRadio" value="Confirme" />
+          Confirme
         </label>
         <label>
-          <input type="radio" name="myRadio" value="option3" />
-          Option 3
+          <input type="radio" name="myRadio" value="As" />
+          As
         </label>
       </p>
       <button>Send</button>
     </form>
-    <h2>Use ref</h2>
-    <input
-        type="text"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <h1>Render Count: {count.current}</h1>
-    <h2>Focus input Acces</h2>
-    <input type="text" ref={inputElement} />
-      <button onClick={focusInput}>Focus Input</button>
-  
+    
+    <h5>Visit Count: {count.current}</h5>
+    <div className="App">
+        <p> Cliquez sur le bouton pour indiquer votre présence : </p>
+        <IncrementButtonmore handleClick={handleClickmore} />
+        <IncrementButtonless handleClick={handleClickless} />
+    </div>
  
 	</body>
 </html>
@@ -175,3 +156,15 @@ function Welcomepage(){
 
 }
 export default withRouter(Welcomepage);
+/*<h2>How Use ref</h2>
+    <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      
+     
+    <h2>Focus input Acces</h2>
+    <input type="text" ref={inputElement} />
+      <button onClick={focusInput}>Focus Input</button>
+*/

@@ -35,7 +35,7 @@ Result.viewRaceResult = (id,result) => {
       return;
     }
 
-    console.log("Coach: ", res);
+    console.log("Result: ", res);
     result(null, res);
     
   });

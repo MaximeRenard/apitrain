@@ -10,6 +10,14 @@ class CoachDataService{
   view() {
     return http.get("/Coachs/view");
   }
+  // delete all Coach
+  deleteAll() {
+    return http.delete("/Coachs/delete");
+  } 
+  // Delete a single Coach with id
+  delete(id) {
+    return http.delete(`/Coachs/delete/${id}`);
+  }
 
 }  
 
