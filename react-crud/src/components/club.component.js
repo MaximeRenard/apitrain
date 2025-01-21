@@ -101,7 +101,7 @@ class ClubList extends Component {
     <>
       <div className="list row">
 	      <div className="col-md-6">
-	          <h4>Club List</h4>
+	          <h2>Clubs :</h2>
             <p> On click list appel de setActiveClub</p>
              
 	            <ul className="list-group">
@@ -152,7 +152,7 @@ class ClubList extends Component {
         <div className="col-md-6">
             {currentClub ? (
                 <div>  
-                  <h4>Detail Category : </h4>
+                  <h3>Detail Club : </h3>
                   <div>
                     <label>
                       <strong>ID:</strong>

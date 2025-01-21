@@ -43,12 +43,12 @@ function FavoriteRace() {
     <>
       <div className="list row">
 	      <div className="col-md-6">
-	          <h1>I've rendered {count} times!</h1>
+	          <h5>I've rendered {count} times!</h5>
             <button  name="Update + 100" onClick={() => setCount((c) => c + 100)}>Add 100</button>
             <p>Calculation * 2: {calculation}</p>
             <button  name="Clear" onClick={() => clearTimeout()}>Clear</button>
              
-             <h1>My favorite race is {race}!</h1>
+             <h3>My favorite race is {race}!</h3>
 	         
             <button
 			type="button"
@@ -68,7 +68,7 @@ function FavoriteRace() {
         	>Semi</button> 
           
 	      </div>
-        <h1>Record race :{record.race}</h1>
+        <h3>Record race :{record.race}</h3>
       <p>
         It is {record.time} in {record.distance} from {record.year}.
       </p>

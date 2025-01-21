@@ -13,14 +13,22 @@ const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes(
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
 ## Link : http://127.0.0.1:8080/api/Category/create
 {
+    "NameCategory" : "MI",
+    "DescriptionCategory" : "14-16 years old"
+}
+{
     "NameCategory" : "Senior",
-    "DescriptionCategory" : "22-35 year's old"
+    "DescriptionCategory" : "22-35 years old"
 }
 {
     "NameCategory" : "M0",
     "DescriptionCategory" : "35-40 years old"
 }
 
+{
+    "NameCategory" : "M2",
+    "DescriptionCategory" : "45-50 years old"
+}
 ## DELETE  http://127.0.0.1:8080/api/Category/delete/
 ## View http://127.0.0.1:8080/api/Category/view/
 # Club
@@ -36,7 +44,42 @@ const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
         "Name": "E2A",
         "City" : "Angers",
         "Address": "OMS",
-        "Description":"Club maitre"
+        "Description":"Entente Angevine Athletisme"
+    
+}
+{
+        "Name": "SCO",
+        "City" : "Angers",
+        "Address": "unknnown",
+        "Description":"SCO Athletisme"
+    
+}
+{
+        "Name": "ASBA",
+        "City" : "Saint Barthelemy",
+        "Address": "unknnown",
+        "Description":"Saint Barthelemy d'Anjou"
+    
+}
+{
+        "Name": "ESHA",
+        "City" : "Segré",
+        "Address": "unknnown",
+        "Description":"Segré Anjou bleu"
+    
+}
+{
+        "Name": "CAPS",
+        "City" : "Saumur",
+        "Address": "unknnown",
+        "Description":"Entente Saumuroise"
+    
+}
+{
+        "Name": "Cholet Athletisme",
+        "City" : "Cholet",
+        "Address": "unknnown",
+        "Description":"Cholet Athletisme"
     
 }
 ## DELETE  http://127.0.0.1:8080/api/Clubs/delete/
@@ -54,7 +97,15 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
 
 ## Link : http://127.0.0.1:8080/api/Coachs/create
 {
-        "Name":"Coaching",
+        "Name":"TBCoaching",
+        "Years":40,
+        "City":"Angers",
+        "Description" : "Route",
+        "Clubid":2
+    
+}
+{
+        "Name":"MRCoaching",
         "Years":30,
         "City":"Angers",
         "Description" : "Route",
@@ -95,6 +146,30 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
     "Coachid": 1,
     "Categoryid" :2
 }
+{
+    "FirstName" : "Speedy",
+    "LastName": "RENARD",
+    "Years": 8,
+    "Weight":3.5,
+    "Height" : 1.75,
+    "City" : "Angers",
+    "FavoriteDistance" : "10km",
+    "Clubid" : 2,
+    "Coachid": 1,
+    "Categoryid" :1
+}
+{
+    "FirstName" : "Clipsy",
+    "LastName": "RENARD",
+    "Years": 18,
+    "Weight":63.5,
+    "Height" : 1.75,
+    "City" : "Angers",
+    "FavoriteDistance" : "10km",
+    "Clubid" : 2,
+    "Coachid": 2,
+    "Categoryid" :4
+}
 ## DELETE http://127.0.0.1:8080/api/Athletes/delete
 ## View : http://127.0.0.1:8080/api/Athletes/View
 # Race
@@ -118,7 +193,31 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
   "Distance" : 21.1,
   "City" : "Cholet",
   "Description" : "Label or ffa",
+  "Clubid" : 6
+}
+{
+    "Name" : "Tour de Montreuil-Juigné",
+  "DateRace" : "2025-05-01",
+  "Distance" : 10,
+  "City" : "Montreuil",
+  "Description" : "10km Angers",
   "Clubid" : 1
+}
+{
+  "Name" : "Cross Departemental long",
+  "DateRace" : "2025-01-12",
+  "Distance" : 8.2,
+  "City" : "Saumur",
+  "Description" : "hippodrome",
+  "Clubid" : 5
+}
+{
+  "Name" : "Cross Departemental court",
+  "DateRace" : "2025-01-12",
+  "Distance" :4.1,
+  "City" : "Segré",
+  "Description" : "Parc sportif",
+  "Clubid" : 4
 }
 ## View http://127.0.0.1:8080/api/race/view/
 ## DELETE  http://127.0.0.1:8080/api/race/delete/
@@ -137,7 +236,75 @@ const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace(
 ## View result Athlete http://127.0.0.1:8080/api/race/result/athlete/:id
 {
         "Athleteid":1,
-        "Raceid":1,
+        "Raceid":3,
         "Timerace":"00:34:39"
+    
+}
+{
+        "Athleteid":1,
+        "Raceid":1,
+        "Timerace":"01:24:29"
+    
+}
+{
+        "Athleteid":1,
+        "Raceid":2,
+        "Timerace":"00:38:29"
+    
+}
+{
+        "Athleteid":1,
+        "Raceid":4,
+        "Timerace":"00:17:29"
+    
+}
+# Speedy
+{
+        "Athleteid":2,
+        "Raceid":3,
+        "Timerace":"00:44:39"
+    
+}
+{
+        "Athleteid":2,
+        "Raceid":1,
+        "Timerace":"01:34:29"
+    
+}
+{
+        "Athleteid":2,
+        "Raceid":2,
+        "Timerace":"00:48:29"
+    
+}
+{
+        "Athleteid":2,
+        "Raceid":4,
+        "Timerace":"00:19:29"
+    
+}
+# Clipŝy
+{
+        "Athleteid":3,
+        "Raceid":3,
+        "Timerace":"00:49:39"
+    
+}
+{
+        "Athleteid":3,
+        "Raceid":1,
+        "Timerace":"01:42:29"
+    
+}
+{
+        "Athleteid":3,
+        "Raceid":2,
+        "Timerace":"00:48:49"
+    
+}
+{
+        "Athleteid":3,
+        "Raceid":4,
+        "Timerace":"00:27:29"
     
 }

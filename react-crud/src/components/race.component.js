@@ -1,7 +1,6 @@
 import RaceDataService from "../services/race.service";
 import React, { Component , useState }  from "react";
 
-import { Link } from "react-router-dom";
 //Router
 import { withRouter } from '../common/with-router';
 
@@ -65,9 +64,10 @@ class RaceList extends Component {
     const { idrace,currentrace, currentIndex } = this.state;
 
     return (
+    <>
       <div className="list row">
 	      <div className="col-md-6">
-	          <h4>race List</h4>
+	          <h2>Race :</h2>
             <p> On click list appel de setActiveRace</p>
              
 	            <ul className="list-group">
@@ -98,9 +98,66 @@ class RaceList extends Component {
                     refreshList
                 </button>
                 
-	      </div>  
+	      </div>
+        <div className="col-md-6">
+          {currentrace ? (
+          <div>
+          <h2>Race Detail :</h2>
+          <div>
+                    <label>
+                    <strong>ID:</strong>
+                    </label>{" "}
+                    {currentrace.Raceid}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Daterace:</strong>
+                    </label>{""}
+                    {currentrace.DateRace}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Distance:</strong>
+                    </label>{" "}
+                    {currentrace.Distance}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>City:</strong>
+                    </label>{" "}
+                    {currentrace.City}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Description:</strong>
+                    </label>{" "}
+                    {currentrace.Description}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Club:</strong>
+                    </label>{" "}
+                    {currentrace.Clubid}
+                  </div>
+                  <div>
+                    <h2>Race Result :</h2>
+                  </div>
+                </div>
+                
+                ) : (
+
+              <div>
+                <br />
+                <p>Please click on a Race...</p>
+              </div>
+             
+              )}
+            
+        </div> 
+       
      
       </div>
+    </>
     );
   }
 }

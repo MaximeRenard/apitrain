@@ -117,26 +117,27 @@ function Welcomepage(){
 		<button type="button" onClick={(e) => setUser("Maxime")}>Author name</button>
 	      	
 	<br/>	
-	<h3>Your level</h3>
+	<h3>Level Form:</h3>
 	<form onSubmit={e => {
       e.preventDefault();
       alert('Submitting!');
     }}>
       <p>
-        Your Level :
+        <ul>Your Level :
 
-        <label>
+        <li><label>
+          <input type="radio" name="myRadio" value="Loisir" />
+          Loisir
+        </label></li>
+        <li><label>
           <input type="radio" name="myRadio" value="Bon" />
           Bon
-        </label>
-        <label>
-          <input type="radio" name="myRadio" value="Confirme" />
+        </label></li>
+        <li><label>
+          <input type="radio" name="myRadio" value="Confirmr" />
           Confirme
-        </label>
-        <label>
-          <input type="radio" name="myRadio" value="As" />
-          As
-        </label>
+        </label></li>
+        </ul> 
       </p>
       <button>Send</button>
     </form>

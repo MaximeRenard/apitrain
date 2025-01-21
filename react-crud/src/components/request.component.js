@@ -1,11 +1,10 @@
-import RaceDataService from "../services/race.service";
+import RequestDataService from "../services/request.service";
 import React, { Component , useState }  from "react";
 
-import { Link } from "react-router-dom";
 //Router
 import { withRouter } from '../common/with-router';
 
-// Logo exeaple
+// Logo example
 // react page
 import logo from '../logo.svg';
 
@@ -13,22 +12,18 @@ import logo from '../logo.svg';
 class RequestDB extends Component {
   render(){
     return(
-       <div className="App">
-	      <header className="App-header">
-	        <img src={logo} className="App-logo" alt="logo" />
+    	<>
+       <div className="Request">
+	      <header className="App-Request">
+	        
 	        <p>
-	          Edit <code>src/App.js</code> and save to reload.
+	          Request on data base to get statistic of athletes, races, category 
 	        </p>
-	        <a
-	          className="App-link"
-	          href="https://reactjs.org"
-	          target="_blank"
-	          rel="noopener noreferrer"
-	        >
-	          Create Request 
-	        </a>
 	      </header>
+	      <h1>Statistic and data</h1>
     </div>
+    <img src={logo} className="App-logo" alt="logo" />
+    </>
 
     );
 

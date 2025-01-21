@@ -92,7 +92,7 @@ class CoachList extends Component {
     <>
       <div className="list row">
 	      <div className="col-md-6">
-	          <h4>Coach List</h4>
+	          <h2>Coach :</h2>
             <p> On click list appel de setActiveCoach</p>
              
 	            <ul className="list-group">
@@ -143,7 +143,7 @@ class CoachList extends Component {
         <div className="col-md-6">
             {currentCoach ? (
                 <div>  
-                  <h4>Detail Category : </h4>
+                  <h3>Detail Coach : </h3>
                   <div>
                     <label>
                       <strong>ID:</strong>

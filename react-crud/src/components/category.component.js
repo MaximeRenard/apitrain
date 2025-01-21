@@ -193,7 +193,7 @@ class CategoryList extends Component {
     <>
       <div className="list row">
 	      <div className="col-md-6">
-	          <h4>Category List</h4>
+	          <h2>Category :</h2>
             <p> On click list appel de setActiveCategory</p>
              
 	            <ul className="list-group">
@@ -230,7 +230,7 @@ class CategoryList extends Component {
         <div className="col-md-6">
             {currentCategory ? (
                 <div>  
-                  <h4>Detail Category : </h4>
+                  <h3>Detail Category : </h3>
                   <div>
                     <label>
                       <strong>ID:</strong>

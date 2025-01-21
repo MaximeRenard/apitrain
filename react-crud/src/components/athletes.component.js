@@ -118,7 +118,7 @@ class AthletesList extends Component {
 
               
           <div className="col-md-6">
-            <h4>Athletes List</h4>
+            <h2>Athletes :</h2>
               
               <ul className="list-group">
                 {Athletes &&
@@ -167,7 +167,7 @@ class AthletesList extends Component {
           <div className="col-md-6">
             {currentAthlete ? (
                 <div>  
-                  <h4>Detail List</h4>
+                  <h3>Detail Athletes : </h3>
                   <div>
                     <label>
                       <strong>ID:</strong>
