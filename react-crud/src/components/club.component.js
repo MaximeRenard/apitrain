@@ -124,7 +124,7 @@ class ClubList extends Component {
                     className="m-3 btn btn-sm btn-danger"
                     onClick={this.getClub}
                   >
-                    Get All async
+                    Get Club
                 </button>
                 <button 
                     className="m-3 btn btn-sm btn-danger"

@@ -75,11 +75,12 @@ const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace(
       
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
 
-// Mettre à jour et delete all tables before
-const delete_tables = `DROP TABLE IF EXISTS ResultAthletesRace,Athletes,Race,CategoryAthletes,Coach,Clubs;`
-// Create DB and connection
+// Suppression des tables et des données 
 // open the MySQL connection
-connection.connect(function(err) {
+/*
+const delete_tables = `DROP TABLE IF EXISTS ResultAthletesRace,Athletes,Race,CategoryAthletes,Coach,Clubs;`
+
+
   if (err) throw err;
   console.log("Successfully connected to the database.");
   // Delete all tables
@@ -88,23 +89,27 @@ connection.connect(function(err) {
     if (err) throw err;
     console.log("Delete All tables");
   });
-
+  */
+// Create DB and connection
+connection.connect(function(err) {
   // Create Table category
   var category = tableCategory; 
   connection.query(category, function (err, result) {
     if (err) throw err;
     console.log("Table Category created");
   });
+
   // Create Table Club 
   var club = tableclub; 
   connection.query(club, function (err, result) {
     if (err) throw err;
-    console.log("Table Club created");
-  });
-  // Create Table Coach 
-  var coach = tableCoach; 
-  connection.query(coach, function (err, result) {
-    if (err) throw err;
+  console.log("Table Club created");
+});
+  
+// Create Table Coach 
+var coach = tableCoach; 
+connection.query(coach, function (err, result) {
+  if (err) throw err;
     console.log("Table  Coach created");
   });
   // Create Table Club 

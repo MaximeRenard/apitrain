@@ -143,7 +143,7 @@ class AthletesList extends Component {
                   className="m-3 btn btn-sm btn-danger"
                   onClick={this.getData}
                 >
-                  Get All
+                  Get Athletes
                 </button>
 
                 <button

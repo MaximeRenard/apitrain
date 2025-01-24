@@ -10,6 +10,9 @@ class RaceDataService{
   viewrace() {
     return http.get("/race/view");
   }
+  resultrace(id){
+    return http.get(`/race/result/${id}`);
+  }
 
 }  
 

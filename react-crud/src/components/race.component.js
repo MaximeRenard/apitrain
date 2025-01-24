@@ -12,12 +12,15 @@ class RaceList extends Component {
     this.retrieverace = this.retrieverace.bind(this);
     this.refreshList = this.refreshList.bind(this);
     this.setActiveRace = this.setActiveRace.bind(this);
-    
+    //viewRaceResult
+    this.retrieveresultrace = this.retrieveresultrace.bind(this);
+
 
     this.state = {
       idrace: [],
       currentrace: 'default',
-  	  currentIndex: 'default'
+  	  currentIndex: 'default',
+      idresult:[]
     };
   }
  
@@ -25,7 +28,7 @@ class RaceList extends Component {
   componentDidMount() {
     this.retrieverace();
   }
-
+// Retrieve race info
   retrieverace() {
     RaceDataService.viewrace()
       .then(response => {
@@ -39,9 +42,26 @@ class RaceList extends Component {
       });
       return "Sucesss";
   }
+
   getRace = async() => {
         await this.retrieverace();
   };
+//Retrieve result of race
+    retrieveresultrace(id) {
+    RaceDataService.resultrace(id)
+      .then(response => {
+        this.setState({
+          idresult: response.data,
+        });
+      })
+      .catch(e => {
+        alert(e)
+        console.log(e);
+      });
+      return "Sucesss";
+  }
+
+  
 
   refreshList() {
     this.retrieverace();
@@ -61,7 +81,7 @@ class RaceList extends Component {
 
 
   render() {
-    const { idrace,currentrace, currentIndex } = this.state;
+    const { idrace,currentrace, currentIndex,idresult } = this.state;
 
     return (
     <>
@@ -81,7 +101,7 @@ class RaceList extends Component {
                     onClick={() => this.setActiveRace(race, index)}
                     key={index}
                   >
-	               <p><strong>race {race.idrace}: </strong> {race.Name} : {race.Description} </p>
+	               <p><strong>Race {race.Raceid}: </strong> {race.Name} : {race.Description} </p>
 	                </li>
                 ))}
             </ul>
@@ -89,7 +109,7 @@ class RaceList extends Component {
                     className="m-3 btn btn-sm btn-danger"
                     onClick={this.getRace}
                   >
-                    Get All async
+                    Get Race
                 </button>
                 <button 
                     className="m-3 btn btn-sm btn-danger"
@@ -140,7 +160,27 @@ class RaceList extends Component {
                     {currentrace.Clubid}
                   </div>
                   <div>
-                    <h2>Race Result :</h2>
+                  <h2>Race Result :</h2>
+                    {idresult &&
+                idresult.map((result, index) => (
+                  <li
+                    className={
+                      "list-group-item " +
+                      (index === currentIndex  ? "active" : "")
+                    }
+                    onClick={() => this.setActiveRace(result, index)}
+                    key={index}
+                  >
+
+                 <p><strong>Result Race : {result.Raceid}: Athlete :</strong> {result.Athleteid} , Time : {result.Timerace}</p>
+                  </li>
+                ))}
+                    <button 
+                    className="m-3 btn btn-sm btn-danger"
+                    onClick={() => this.retrieveresultrace(currentrace.Raceid)}
+                  >
+                    Get Race
+                </button>
                   </div>
                 </div>
                 

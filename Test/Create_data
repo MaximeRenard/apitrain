@@ -13,21 +13,23 @@ const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes(
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
 ## Link : http://127.0.0.1:8080/api/Category/create
 {
+{
     "NameCategory" : "MI",
     "DescriptionCategory" : "14-16 years old"
-}
+},
 {
     "NameCategory" : "Senior",
     "DescriptionCategory" : "22-35 years old"
-}
+},
 {
     "NameCategory" : "M0",
     "DescriptionCategory" : "35-40 years old"
-}
+},
 
 {
     "NameCategory" : "M2",
     "DescriptionCategory" : "45-50 years old"
+}
 }
 ## DELETE  http://127.0.0.1:8080/api/Category/delete/
 ## View http://127.0.0.1:8080/api/Category/view/
@@ -112,6 +114,14 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
         "Clubid":1
     
 }
+{
+        "Name":"ALCoaching",
+        "Years":30,
+        "City":"Angers",
+        "Description" : "Route",
+        "Clubid":2
+    
+}
 ## DELETE http://127.0.0.1:8080/api/Coachs/delete
 ## View http://127.0.0.1:8080/api/Coachs/view
 # Athlete
@@ -155,9 +165,23 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
     "City" : "Angers",
     "FavoriteDistance" : "10km",
     "Clubid" : 2,
-    "Coachid": 1,
+    "Coachid": 2,
     "Categoryid" :1
 }
+{
+    "Athleteid":3,
+    "FirstName" : "Clipsy",
+    "LastName": "RENARD",
+    "Years": 18,
+    "Weight":63.5,
+    "Height" : 1.75,
+    "City" : "Angers",
+    "FavoriteDistance" : "10km",
+    "Clubid" : 2,
+    "Coachid": 3,
+    "Categoryid" :4
+}
+
 {
     "FirstName" : "Clipsy",
     "LastName": "RENARD",
@@ -167,7 +191,7 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
     "City" : "Angers",
     "FavoriteDistance" : "10km",
     "Clubid" : 2,
-    "Coachid": 2,
+    "Coachid": 3,
     "Categoryid" :4
 }
 ## DELETE http://127.0.0.1:8080/api/Athletes/delete
@@ -196,7 +220,7 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
   "Clubid" : 6
 }
 {
-    "Name" : "Tour de Montreuil-Juigné",
+    "Name" : "Tour de MJ",
   "DateRace" : "2025-05-01",
   "Distance" : 10,
   "City" : "Montreuil",
@@ -204,7 +228,7 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
   "Clubid" : 1
 }
 {
-  "Name" : "Cross Departemental long",
+  "Name" : "Cross Dep long",
   "DateRace" : "2025-01-12",
   "Distance" : 8.2,
   "City" : "Saumur",
@@ -212,7 +236,7 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
   "Clubid" : 5
 }
 {
-  "Name" : "Cross Departemental court",
+  "Name" : "Cross Dep court",
   "DateRace" : "2025-01-12",
   "Distance" :4.1,
   "City" : "Segré",
@@ -285,25 +309,25 @@ const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace(
 }
 # Clipŝy
 {
-        "Athleteid":3,
+        "Athleteid":4,
         "Raceid":3,
         "Timerace":"00:49:39"
     
 }
 {
-        "Athleteid":3,
+        "Athleteid":4,
         "Raceid":1,
         "Timerace":"01:42:29"
     
 }
 {
-        "Athleteid":3,
+        "Athleteid":4,
         "Raceid":2,
         "Timerace":"00:48:49"
     
 }
 {
-        "Athleteid":3,
+        "Athleteid":4,
         "Raceid":4,
         "Timerace":"00:27:29"
     

@@ -114,7 +114,7 @@ class CoachList extends Component {
                     className="m-3 btn btn-sm btn-danger"
                     onClick={this.getCoach}
                   >
-                    Get All async
+                    Get Coach
                 </button>
                 <button 
                     className="m-3 btn btn-sm btn-danger"
