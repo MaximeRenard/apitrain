@@ -19,11 +19,12 @@ function FavoriteRace() {
      const [calculation, setCalculation] = useState(0);
     // useeffect time
     useEffect(() => {
+     var number = 5; 
      let timer = setTimeout(() => {
-      setCount((count) => count + 1);
+      setCount((count) => count + number);
       }, 50);
      // Clear
-    return () => clearTimeout(timer)
+    return () => clearTimeout(0)
   }, [0]);
     
     //calculate
@@ -33,7 +34,7 @@ function FavoriteRace() {
 
     const updaterecord = () => {
       setRecord(previousState => {
-        return { ...previousState, year: "2022" }
+        return { ...previousState, year: "2026" }
       });
     }
     
@@ -42,18 +43,24 @@ function FavoriteRace() {
       
     <>
       <div className="list row">
+      <h2>News</h2>
 	      <div className="col-md-6">
-	          <h5>I've rendered {count} times!</h5>
-            <button  name="Update + 100" onClick={() => setCount((c) => c + 100)}>Add 100</button>
-            <p>Calculation * 2: {calculation}</p>
-            <button  name="Clear" onClick={() => clearTimeout()}>Clear</button>
+          <h3>Forum</h3>
+	          <p>Vistor calculation : {count} </p>
+            <button  name="Update" onClick={() => setCount((c) => (c / 100)*5)}>Speed calcul conversion v = d/t</button>
+            <p>Calculation (c / 100)*5: {calculation}</p>
+            <button  name="Clear" onClick={() => clearTimeout()}>Clear operation</button>
+            <br/>
+            
+            <h3>Calendar</h3>
              
-             <h3>My favorite race is {race}!</h3>
+             <h5>My favorite race is {race}!</h5>
 	         
             <button
-			type="button"
+			       type="button"
           	onClick={() => setRace("Cholet")}
-        	>Cholet</button>
+        	   >Cholet</button>
+
         	<button
           	type="button"
           	onClick={() => setRace("Cross")}
@@ -67,15 +74,19 @@ function FavoriteRace() {
           	onClick={() => setRace("Semi Marathon")}
         	>Semi</button> 
           
-	      </div>
-        <h3>Record race :{record.race}</h3>
-      <p>
-        It is {record.time} in {record.distance} from {record.year}.
-      </p>
-      <button
-        type="button"
-        onClick={updaterecord}
-      >Update record</button>
+	     </div>
+       <div className="col-md-6">
+          <h3>Record</h3>
+
+          <p>Record race : {record.race}</p>
+            <p>
+              It is {record.time} in {record.distance} from {record.year}.
+            </p>
+            <button
+              type="button"
+              onClick={updaterecord}
+            >Update record</button>
+          </div>
      
       </div>
     </>

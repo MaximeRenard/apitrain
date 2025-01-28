@@ -12,7 +12,7 @@ import './App.css';
 import Homepage from "./components/home.component";
 
 // Actualite et calendar
-import Actualitepage from "./components/actualite.component";
+import News from "./components/news.component";
 
 // Category
 import CategoryList from "./components/category.component";
@@ -76,8 +76,8 @@ class App extends Component {
              </li>
 
             <li className="nav-item">
-              <Link to={"/Actualite/"} className="nav-link">
-                Actualite&Calendar
+              <Link to={"/News/"} className="nav-link">
+                News&Calendar
               </Link>
              </li>
 
@@ -139,7 +139,7 @@ class App extends Component {
         <div className="container mt-3">
           <Routes>
             <Route path="/Home" element={<Homepage/>} />
-            <Route path="/Actualite" element={<Actualitepage/>} />
+            <Route path="/News" element={<News/>} />
             
             <Route path="/Category/view/" element={<CategoryList/>} />
             <Route path="/Category/create/" element={<CategoryAdd/>} />
