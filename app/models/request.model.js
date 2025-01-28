@@ -1,6 +1,20 @@
-/*  Request on multi table with join table
-*/
+/*  Request on multi table with join table*/
 const sql = require("./db.js");
+
+// Request Athlete
+const Request = function(athlete) {
+  this.LastName = athlete.LastName;
+  this.FirstName = athlete.FirstName;
+  this.Years = athlete.Years;
+  this.Weight = athlete.Weight;
+  this.Height = athlete.Height;
+  this.City = athlete.City;
+  this.FavoriteDistance = athlete.FavoriteDistance;
+  this.Clubid = athlete.Clubid;
+  this.Coachid = athlete.Coachid;
+  this.Categoryid = athlete.Categoryid;
+};
+/*
 //Category
 const Category = function(category) {
   this.NameCategory = category.NameCategory;
@@ -22,20 +36,8 @@ const Coach = function(coach) {
   this.Description = coach.Description;
   this.Clubid = coach.Clubid;
 };
-// Athlete
-const Athlete = function(athlete) {
-  this.LastName = athlete.LastName;
-  this.FirstName = athlete.FirstName;
-  this.Years = athlete.Years;
-  this.Weight = athlete.Weight;
-  this.Height = athlete.Height;
-  this.City = athlete.City;
-  this.FavoriteDistance = athlete.FavoriteDistance;
-  this.Clubid = athlete.Clubid;
-  this.Coachid = athlete.Coachid;
-  this.Categoryid = athlete.Categoryid;
-};
 // Race
+
 const Race = function(race) {
   this.Name = race.Name;
   this.DateRace = race.DateRace;
@@ -51,22 +53,44 @@ const Result = function(result) {
   this.Timerace = result.Timerace;
   
 };
-// 1- Athlete d'une ville
+const Category = function(category) {
+  this.NameCategory = category.NameCategory;
+  this.DescriptionCategory = category.DescriptionCategory;
+};
+*/
+// 1- Athlete par ville with alphabetic order
+// Athletes of city
+//if (city) {
+  //  query += ` WHERE City LIKE '%${city}%'`;
+  //}
+Request.getAthletescity = (result) => {
+  let query = "SELECT LastName,FirstName,City,FavoriteDistance FROM Athletes WHERE City IS NOT NULL ORDER BY City";
 
-// 2- Athlete des club
+  sql.query(query, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
 
-// 3- Athlete d'un coach
+    console.log("Athletes: ", res);
+    result(null, res);
+  });
+};
+// 2- Athlete des club par category et nb adherent
 
-// 4- Athlete d'une categorie
+// 3- Athlete d'un coach avec affichage nom 
+
+// 4- Athlete d'une categorie order by sex 
 
 // 6- Meilleur athlete par categorie, club
 
-// 7- Coach Annuaire order by athlete
+// 7- Coach Annuaire order by athlete affichage nom, club
 
-// 8- Resultat d'une course
+// 8- Podium d'une course oder by sex 
 
-// 9- tous les Resultats d'un athlete
+// 9- tous les Resultats d'un athlete oder by date course
 
-// 10- Record athlete par epreuve
+// 10- Record des epreuves avc affichage temps et Athletes
 
-module.exports = Result;
+module.exports = Request;

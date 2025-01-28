@@ -46,6 +46,8 @@ require("./app/routes/coach.routes.js")(app);
 require("./app/routes/athlete.routes.js")(app);
 // Race part
 require("./app/routes/race.routes.js")(app);
+// Request part
+require("./app/routes/request.routes.js")(app);
 
 // set port, listen for requests process.env.PORT 
 const PORT =  process.env.PORT || 8080;

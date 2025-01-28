@@ -123,11 +123,17 @@ class RaceList extends Component {
           {currentrace ? (
           <div>
           <h2>Race Detail :</h2>
-          <div>
+                  <div>
                     <label>
                     <strong>ID:</strong>
                     </label>{" "}
                     {currentrace.Raceid}
+                  </div>
+                  <div>
+                    <label>
+                    <strong>Name:</strong>
+                    </label>{""}
+                    {currentrace.Name}
                   </div>
                   <div>
                     <label>
