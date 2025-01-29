@@ -77,8 +77,24 @@ Request.getAthletescity = (result) => {
     result(null, res);
   });
 };
-// 2- Athlete des club par category et nb adherent
+// 2- Athlete d'un club par category et par coach
+Request.getAthletesClub = (idclub,result) => {
+  let query = `SELECT LastName,FirstName,NameCategory,City,Name,Coachid
+              FROM Athletes NATURAL JOIN CategoryAthletes NATURAL JOIN Clubs  
+              WHERE Clubid = ?            
+              ORDER BY NameCategory AND Coachid`
 
+  sql.query(query, idclub,(err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+    //console.log(query);
+    console.log("Athletes of club: ", res);
+    result(null, res);
+  });
+};
 // 3- Athlete d'un coach avec affichage nom 
 
 // 4- Athlete d'une categorie order by sex 

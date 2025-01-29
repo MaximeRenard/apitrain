@@ -12,7 +12,6 @@ const Race = function(race) {
   this.City = race.City;
   this.Description = race.Description;
   this.Clubid = race.Clubid;
-  
 };
 
 
