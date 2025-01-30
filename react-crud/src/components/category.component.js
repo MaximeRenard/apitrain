@@ -111,6 +111,18 @@ class CategoryList extends Component {
       };
     });
   }
+  onChangeSex(e) {
+    const Sex = e.target.value;
+
+    this.setState(function(prevState) {
+      return {
+        currentCategory: {
+          ...prevState.currentCategory,
+          Sexcategory: Sex
+        }
+      };
+    });
+  }
 
   onChangeDescription(e) {
     const description = e.target.value;
@@ -144,6 +156,7 @@ class CategoryList extends Component {
   saveCategory() {
     var data = {
       NameCategory: this.state.currentCategory.NameCategory,
+      Sexcategory: this.state.currentCategory.Sexcategory,
       DescriptionCategory: this.state.currentCategory.DescriptionCategory
     };
 
@@ -152,6 +165,7 @@ class CategoryList extends Component {
         this.setState({
           id: response.data.Categoryid,
           NameCategory: response.data.NameCategory,
+          Sexcategory: response.data.Sexcategory,
           DescriptionCategory: response.data.DescriptionCategory,
           submitted: true
         });
@@ -167,6 +181,7 @@ class CategoryList extends Component {
     this.setState({
       Categoryid: null,
       NameCategory: "",
+      Sexcategory:"",
       DescriptionCategory: "",
     });
   }
@@ -207,7 +222,7 @@ class CategoryList extends Component {
                     onClick={() => this.setActiveCategory(category, index)}
                     key={index}
                   >
-	               <p><strong>Category {category.Categoryid}: </strong> {category.NameCategory} : {category.DescriptionCategory} </p>
+	               <p><strong>Category {category.Categoryid}: </strong> {category.NameCategory} : {category.Sexcategory} : {category.DescriptionCategory} </p>
 	                </li>
                 ))}
             </ul>
@@ -245,6 +260,12 @@ class CategoryList extends Component {
                   </div>
                   <div>
                     <label>
+                      <strong>Sex:</strong>
+                    </label>{" "}
+                    {currentCategory.Sexcategory}
+                  </div>
+                  <div>
+                    <label>
                       <strong>Description:</strong>
                     </label>{" "}
                     {currentCategory.DescriptionCategory}
@@ -263,6 +284,17 @@ class CategoryList extends Component {
                         value={this.state.currentCategory.NameCategory}
                         onChange={this.onChangeTitle}
                         name="NameCategory"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="Sexcategory">Sex</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="Sexcategory"
+                        value={this.state.currentCategory.Sexcategory}
+                        onChange={this.onChangeSex}
+                        name="Sexcategory"
                       />
                     </div>
 

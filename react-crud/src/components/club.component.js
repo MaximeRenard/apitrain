@@ -115,7 +115,7 @@ class ClubList extends Component {
                     onClick={() => this.setActiveClub(club, index)}
                     key={index}
                   >
-	               <p><strong>club {club.Clubid}: </strong> {club.Name} : {club.City} : {club.Description} </p>
+	               <p><strong>club {club.Clubid}: </strong> {club.Nameclub} : {club.City} : {club.Description} </p>
 	                </li>
 
                 ))}
@@ -163,7 +163,7 @@ class ClubList extends Component {
                     <label>
                       <strong>Name:</strong>
                     </label>{" "}
-                    {currentClub.Name}
+                    {currentClub.Nameclub}
                   </div>
                   <div>
                     <label>

@@ -8,14 +8,16 @@ import { withRouter } from '../common/with-router';
     super(props);
     this.onChangeID = this.onChangeID.bind(this);
     this.onChangeTitle = this.onChangeTitle.bind(this);
+    this.onChangeSex = this.onChangeSex.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.saveCategory = this.saveCategory.bind(this);
     this.newCategory = this.newCategory.bind(this);
 
     this.state = {
       id: null,
-      Name: "",
-      description: "", 
+      NameCategory: "",
+      Sexcategory:"",
+      DescriptionCategory: "", 
     };
   }
 
@@ -31,17 +33,23 @@ import { withRouter } from '../common/with-router';
       title: e.target.value
     });
   }
+  onChangeSex(e) {
+    this.setState({
+      Sexcategory: e.target.value
+    });
+  }
 
   onChangeDescription(e) {
     this.setState({
-      description: e.target.value
+      DescriptionCategory: e.target.value
     });
   }
 
   saveCategory() {
     var data = {
       NameCategory: this.state.title,
-      DescriptionCategory: this.state.description
+      Sexcategory:this.state.Sexcategory,
+      DescriptionCategory: this.state.DescriptionCategory
     };
 
     CategoryDataService.create(data)
@@ -49,6 +57,7 @@ import { withRouter } from '../common/with-router';
         this.setState({
           id: response.data.Categoryid,
           NameCategory: response.data.NameCategory,
+          Sexcategory: response.data.Sexcategory,
           DescriptionCategory: response.data.DescriptionCategory,
           submitted: true
         });
@@ -91,6 +100,19 @@ import { withRouter } from '../common/with-router';
                 value={this.state.NameCategory}
                 onChange={this.onChangeTitle}
                 name="NameCategory"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="NameCategory">Sex</label>
+              <input
+                type="text"
+                className="form-control"
+                id="SexCategory"
+                required
+                value={this.state.SexCategory}
+                onChange={this.onChangeSex}
+                name="SexCategory"
               />
             </div>
 

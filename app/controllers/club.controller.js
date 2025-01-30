@@ -13,7 +13,7 @@ exports.create = (req, res) => {
 
   const club = new Club({
     // Name of club
-    Name: req.body.Name,
+    Nameclub: req.body.Nameclub,
     City: req.body.City,
     Address: req.body.Address,
     Description: req.body.Description

@@ -6,6 +6,7 @@ const sql = require("./db.js");
 // Category
 const Category = function(category) {
   this.NameCategory = category.NameCategory;
+  this.Sexcategory = category.Sexcategory;
   this.DescriptionCategory = category.DescriptionCategory;
 };
 
@@ -73,8 +74,8 @@ Category.remove = (id, result) => {
 
 Category.updateById = (id, category, result) => {
   sql.query(
-    "UPDATE CategoryAthletes SET NameCategory = ?, DescriptionCategory = ? WHERE Categoryid = ?",
-    [category.NameCategory, category.DescriptionCategory, id],
+    "UPDATE CategoryAthletes SET NameCategory = ?, DescriptionCategory = ? Sexcategory = ? WHERE Categoryid = ?",
+    [category.NameCategory, category.DescriptionCategory,category.Sexcategory, id],
 
     (err, res) => {
       if (err) {

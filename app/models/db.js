@@ -14,13 +14,15 @@ const connection = mysql.createConnection({
 // CREATE Database
 const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes( 
         Categoryid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        NameCategory varchar(20) NOT NULL,
-        DescriptionCategory varchar(55) NOT NULL
+        Sexcategory VARCHAR(10) NOT NULL,
+        NameCategory varchar(3) NOT NULL,
+        DescriptionCategory varchar(55) NOT NULL,
+        CONSTRAINT CHK_Category CHECK (Sexcategory = 'Men' OR Sexcategory='Woman')
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
 
 const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
         Clubid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        Name varchar(20) NOT NULL,
+        Nameclub varchar(30) NOT NULL,
         City varchar(50) NOT NULL,
         Address varchar(50),
         Description varchar(255)
@@ -28,7 +30,7 @@ const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
 
 const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
         Coachid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        Name varchar(20) NOT NULL,
+        Namecoach varchar(30) NOT NULL,
         Years int(4) NOT NULL,
         City varchar(50) NOT NULL,
         Description varchar(255),
@@ -38,7 +40,7 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
 
 const tablerace = `CREATE TABLE IF NOT EXISTS Race(
         Raceid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        Name varchar(20) NOT NULL,
+        Namerace varchar(50) NOT NULL,
         DateRace DATE NOT NULL,
         Distance DOUBLE(4,1) NOT NULL,
         City varchar(50) NOT NULL,
@@ -53,6 +55,7 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
         LastName varchar(20) NOT NULL,
         FirstName varchar(20)NOT NULL,
         Years int(4) NOT NULL,
+        Sexathetes VARCHAR(10) NOT NULL,
         Weight FLOAT(5,2),
         Height FLOAT(4,2),
         City varchar(50) NOT NULL,
@@ -62,7 +65,8 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
         Coachid int NOT NULL,
         FOREIGN KEY (Coachid) REFERENCES Coach(Coachid),
         Categoryid int(11) NOT NULL,
-        FOREIGN KEY (Categoryid) REFERENCES CategoryAthletes(Categoryid)
+        FOREIGN KEY (Categoryid) REFERENCES CategoryAthletes(Categoryid),
+        CONSTRAINT CHK_Athletes CHECK (Sexathetes = 'Men' OR Sexathetes='Woman')
       
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
 
@@ -77,21 +81,21 @@ const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace(
 
 // Suppression des tables et des données 
 // open the MySQL connection
-/*
-const delete_tables = `DROP TABLE IF EXISTS ResultAthletesRace,Athletes,Race,CategoryAthletes,Coach,Clubs;`
-
-
-  if (err) throw err;
+  
+connection.connect(function(err) {
   console.log("Successfully connected to the database.");
+  /*
   // Delete all tables
-  var reinitialize = delete_tables;
-  connection.query(reinitialize, function (err, result) {
+    const delete_tables = `DROP TABLE IF EXISTS 
+    ResultAthletesRace,Athletes,Race,CategoryAthletes,Coach,Clubs;`
+    var reinitialize = delete_tables;
+    connection.query(reinitialize, function (err, result) {
     if (err) throw err;
     console.log("Delete All tables");
   });
-  */
+*/
 // Create DB and connection
-connection.connect(function(err) {
+
   // Create Table category
   var category = tableCategory; 
   connection.query(category, function (err, result) {

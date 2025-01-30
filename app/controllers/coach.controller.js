@@ -14,7 +14,7 @@ exports.create = (req, res) => {
 
   const coach = new Coach({
     // Name of coach
-    Name: req.body.Name,
+    Namecoach: req.body.Namecoach,
     Years: req.body.Years,
     City: req.body.City,
     Description: req.body.Description,

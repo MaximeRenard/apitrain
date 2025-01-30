@@ -23,8 +23,8 @@ class AthletesList extends Component {
     
     this.state = {
       Athletes: [],
-      currentAthlete: null,
-      currentIndex: 0
+      currentAthlete: 'default',
+      currentIndex: 'default'
     };
   }
  
@@ -131,8 +131,8 @@ class AthletesList extends Component {
                     onClick={() => this.setActiveAthlete(athlete, index)}
                     key={index}
                   >
-                    {athlete.FirstName} : {athlete.Athleteid} : {athlete.Years} years old- 
-                      Detail  Category: {athlete.Categoryid} - Coach : {athlete.Categoryid}
+                    {athlete.FirstName} : {athlete.Athleteid} : 
+                      Detail  Category: {athlete.Categoryid}  - Coach : {athlete.Categoryid}
                       Club : {athlete.Clubid}
                   </li>
 
@@ -182,9 +182,29 @@ class AthletesList extends Component {
                   </div>
                   <div>
                     <label>
-                      <strong>Height:</strong>
+                      <strong>Last Name:</strong>
                     </label>{" "}
-                    {currentAthlete.Height}
+                    {currentAthlete.LastName}
+                  </div>
+                  
+                  <div>
+                    <label>
+                      <strong>Years:</strong>
+                    </label>{" "}
+                    {currentAthlete.Years}
+                  </div>
+                  <div>
+                    <label>
+                      <strong>Sex:</strong>
+                    </label>{" "}
+                    {currentAthlete.Sexathletes}
+                  </div>
+                  
+                  <div>
+                    <label>
+                      <strong>City:</strong>
+                    </label>{" "}
+                    {currentAthlete.City}
                   </div>
                   <div>
                     <label>
@@ -217,12 +237,29 @@ class AthletesList extends Component {
                         to coachs page
                     </Link>
                     </button>
+                    <button className="m-3 btn btn-sm btn-danger">
+                    <Link
+                        to={"/Race/view/"}
+                        className="badge badge-warning"
+                      >
+                        to Race page
+                    </Link>
+                    </button>
+                    <button className="m-3 btn btn-sm btn-danger">
+                    <Link
+                        to={"/Statistic/"}
+                        className="badge badge-warning"
+                      >
+                        to Statistic page
+                    </Link>
+                    
+                    </button>
 
                     <button 
                       className="m-3 btn btn-sm btn-danger"
                       onClick={this.deleteAthlete}
                       >
-                      Delete
+                      Delete Athletes
                     </button>
 
                 

@@ -6,7 +6,7 @@ const sql = require("./db.js");
 
 // Race
 const Race = function(race) {
-  this.Name = race.Name;
+  this.Namerace = race.Namerace;
   this.DateRace = race.DateRace;
   this.Distance = race.Distance;
   this.City = race.City;

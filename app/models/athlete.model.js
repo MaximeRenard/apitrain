@@ -15,6 +15,7 @@ const Athlete = function(athlete) {
   this.LastName = athlete.LastName;
   this.FirstName = athlete.FirstName;
   this.Years = athlete.Years;
+  this.Sexathletes = category.Sexathletes;
   this.Weight = athlete.Weight;
   this.Height = athlete.Height;
   this.City = athlete.City;
@@ -92,8 +93,8 @@ Athlete.getAllCategory = (id, result) => {
 
 Athlete.updateById = (id, athlete, result) => {
   sql.query(
-    "UPDATE Athletes SET LastName = ?, FirstName = ?, Years = ?,Weight = ?, Height = ?, City = ?, FavoriteDistance = ? WHERE Athleteid = ?",
-    [athlete.LastName, athlete.FirstName, athlete.Years,athlete.Weight,athlete.Height,athlete.City,athlete.FavoriteDistance, id],
+    "UPDATE Athletes SET LastName = ?, FirstName = ?, Years = ? Sexathletes = ?,Weight = ?, Height = ?, City = ?, FavoriteDistance = ? WHERE Athleteid = ?",
+    [athlete.LastName, athlete.FirstName, athlete.Years,athlete.Sexathletes,athlete.Weight,athlete.Height,athlete.City,athlete.FavoriteDistance, id],
   // No change in foreign key  
   //this.ClubsID = athlete.ClubsID;
   //this.CoachID = athlete.CoachID;

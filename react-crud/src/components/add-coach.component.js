@@ -30,7 +30,7 @@ import { withRouter } from '../common/with-router';
 
  onChangeTitle(e) {
     this.setState( {
-      Name: e.target.value
+      Namecoach: e.target.value
     });
   }
   onChangeYears(e) {
@@ -83,7 +83,7 @@ import { withRouter } from '../common/with-router';
       .then(response => {
         this.setState({
           id: response.data.Coachid,
-          Name: response.data.Name,
+          Namecoach: response.data.Namecoach,
           Years:response.data.Years,
           City:response.data.City,
           Address: response.data.Adress,
@@ -102,8 +102,9 @@ import { withRouter } from '../common/with-router';
   newcoach() {
     this.setState({
       id: null,
-      Name: "",
+      Namecoach: "",
       Years:null,
+      Namecoach:null,
       City:"",
       Address: "",
       Description: "",
@@ -129,11 +130,11 @@ import { withRouter } from '../common/with-router';
               <input
                 type="text"
                 className="form-control"
-                id="Name"
+                id="Namecoach"
                 required
-                value={this.state.Name}
+                value={this.state.Namecoach}
                 onChange={this.onChangeTitle}
-                name="Name"
+                name="Namecoach"
               />
             </div>
 

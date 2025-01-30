@@ -13,7 +13,8 @@ exports.create = (req, res) => {
   const category = new Category({
     // Name of category
     NameCategory: req.body.NameCategory,
-    DescriptionCategory: req.body.DescriptionCategory
+    DescriptionCategory: req.body.DescriptionCategory,
+    Sexcategory: req.body.Sexcategory
   });
 
   // Save category in the database

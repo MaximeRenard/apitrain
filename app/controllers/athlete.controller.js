@@ -16,6 +16,7 @@ exports.create = (req, res) => {
     LastName: req.body.LastName,
     FirstName: req.body.FirstName,
     Years: req.body.Years,
+    Sexathletes: req.body.Sexathletes,
     Weight: req.body.Weight || false,
     Height: req.body.Height || false,
     City: req.body.City,
@@ -36,7 +37,7 @@ exports.create = (req, res) => {
   });
 };
 
-// Retrieve all objects
+// Retrieve all athletes
 exports.findAllAthletes = (req, res) => {
 
   Athlete.getAllAthletes((err, data) => {

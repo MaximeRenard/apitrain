@@ -14,23 +14,52 @@ const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes(
 ## Link : http://127.0.0.1:8080/api/Category/create
 # Categoryid 1
 {
-    "NameCategory" : "MI",
+    "NameCategory" : "MIH",
+    "Sexcategory":"Men",
     "DescriptionCategory" : "14-16 years old"
 }
 ## Link : http://127.0.0.1:8080/api/Category/create
 # Categoryid 2
 {
-    "NameCategory" : "Senior",
+    "NameCategory" : "SEH",
+    "Sexcategory":"Men",
     "DescriptionCategory" : "22-35 years old"
 }
 # Categoryid 3
 {
-    "NameCategory" : "M0",
+    "NameCategory" : "M0H",
+    "Sexcategory":"Men",
     "DescriptionCategory" : "35-40 years old"
 }
 # Categoryid 4
 {
-    "NameCategory" : "M2",
+    "NameCategory" : "M2H",
+    "Sexcategory":"Men",
+    "DescriptionCategory" : "45-50 years old"
+}
+# Categoryid 5
+{
+    "NameCategory" : "MIF",
+    "Sexcategory":"Woman",
+    "DescriptionCategory" : "14-16 years old"
+}
+## Link : http://127.0.0.1:8080/api/Category/create
+# Categoryid 6
+{
+    "NameCategory" : "SEF",
+    "Sexcategory":"Woman",
+    "DescriptionCategory" : "22-35 years old"
+}
+# Categoryid 7
+{
+    "NameCategory" : "M0F",
+    "Sexcategory":"Woman",
+    "DescriptionCategory" : "35-40 years old"
+}
+# Categoryid 8
+{
+    "NameCategory" : "M2F",
+    "Sexcategory":"Woman",
     "DescriptionCategory" : "45-50 years old"
 }
 
@@ -177,6 +206,7 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
         Athleteid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         LastName varchar(20) NOT NULL,
         FirstName varchar(20)NOT NULL,
+        Sexathletes CHECK (Men, Woman)
         Years int(4) NOT NULL,
         Weight FLOAT(5,2),
         Height FLOAT(4,2),
@@ -196,6 +226,7 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
     "FirstName" : "Maxime",
     "LastName": "RENARD",
     "Years": 28,
+    "Sexathletes":"Men",
     "Weight":63.5,
     "Height" : 1.75,
     "City" : "Angers",
@@ -209,6 +240,7 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
     "FirstName" : "Speedy",
     "LastName": "RENARD",
     "Years": 8,
+    "Sexathletes":"Men",
     "Weight":3.5,
     "Height" : 1.75,
     "City" : "Angers",
@@ -217,10 +249,11 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
     "Coachid": 2,
     "Categoryid" :1
 }
-# Athleteid 4
+# Athleteid 3
 {
     "FirstName" : "Clipsy",
     "LastName": "RENARD",
+    "Sexathletes":"Men",
     "Years": 18,
     "Weight":63.5,
     "Height" : 1.75,
@@ -230,11 +263,12 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
     "Coachid": 3,
     "Categoryid" :4
 }
-# Athleteid 6
+# Athleteid 4
 {
     "FirstName" : "Brendan",
     "LastName": "DURE",
     "Years": 15,
+    "Sexathletes":"Men",
     "Weight":63.5,
     "Height" : 1.65,
     "City" : "Bart",
@@ -243,50 +277,54 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
     "Coachid": 4,
     "Categoryid" :1
 }
-# Athleteid 7
+# Athleteid 5
 {
     "FirstName" : "Laura",
     "LastName": "DURET",
     "Years": 28,
+    "Sexathletes":"Woman",
     "Weight":53.5,
     "Height" : 1.55,
     "City" : "Segré",
     "FavoriteDistance" : "5km",
     "Clubid" : 4,
     "Coachid": 5,
-    "Categoryid" :2
+    "Categoryid" :6
 }
-# Athleteid 8
+# Athleteid 6
 {
     "FirstName" : "Anais",
     "LastName": "AURET",
     "Years": 38,
+    "Sexathletes":"Woman",
     "Weight":53.5,
     "Height" : 1.55,
     "City" : "Saumur",
     "FavoriteDistance" : "50km",
     "Clubid" : 5,
     "Coachid": 6,
-    "Categoryid" :3
+    "Categoryid" :7
 }
-# Athleteid 9
+# Athleteid 7
 {
     "FirstName" : "Audrey",
     "LastName": "BURET",
     "Years": 48,
+    "Sexathletes":"Woman",
     "Weight":53.5,
     "Height" : 1.55,
     "City" : "Cholet",
     "FavoriteDistance" : "100km",
     "Clubid" : 6,
     "Coachid": 7,
-    "Categoryid" :4
-# Athleteid 10
+    "Categoryid" :8
+# Athleteid 8
 ## Doublon double coach different club
 {
     "FirstName" : "Maxime",
     "LastName": "RENARC",
     "Years": 28,
+    "Sexathletes":"Men",
     "Weight":63.5,
     "Height" : 1.75,
     "City" : "Angers",
@@ -424,63 +462,63 @@ const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace(
         "Timerace":"00:19:29"
     
 }
-# For athleteid 4 Clipŝy
+# For athleteid 3 Clipŝy
 {
-        "Athleteid":4,
+        "Athleteid":3,
         "Raceid":3,
         "Timerace":"00:49:39"
     
 }
 {
-        "Athleteid":4,
+        "Athleteid":3,
         "Raceid":1,
         "Timerace":"01:42:29"
     
 }
 {
-        "Athleteid":4,
+        "Athleteid":3,
         "Raceid":2,
         "Timerace":"00:48:49"
     
 }
 {
-        "Athleteid":4,
+        "Athleteid":3,
         "Raceid":4,
         "Timerace":"00:27:29"
+    
+}
+# For athleteid 4
+{
+        "Athleteid":4,
+        "Raceid":5,
+        "Timerace":"01:27:29"
+    
+}
+# For athleteid 5
+{
+        "Athleteid":5,
+        "Raceid":5,
+        "Timerace":"01:17:29"
     
 }
 # For athleteid 6
 {
         "Athleteid":6,
         "Raceid":5,
-        "Timerace":"01:27:29"
+        "Timerace":"01:47:29"
     
 }
 # For athleteid 7
 {
         "Athleteid":7,
         "Raceid":5,
-        "Timerace":"01:17:29"
-    
-}
-# For athleteid 8
-{
-        "Athleteid":8,
-        "Raceid":5,
-        "Timerace":"01:47:29"
-    
-}
-# For athleteid 9
-{
-        "Athleteid":9,
-        "Raceid":5,
         "Timerace":"01:37:29"
     
 }
-# For athleteid 10
+# For athleteid 8
 #  Doublon coach
 {
-        "Athleteid":10,
+        "Athleteid":8,
         "Raceid":5,
         "Timerace":"01:15:29"
     

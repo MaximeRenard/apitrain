@@ -16,7 +16,7 @@ import { withRouter } from '../common/with-router';
 
     this.state = {
       Clubid: null,
-      Name: "",
+      Nameclub: "",
       City:"",
       Address: "",
       Description: "",
@@ -26,7 +26,7 @@ import { withRouter } from '../common/with-router';
 
  onChangeTitle(e) {
     this.setState( {
-      Name: e.target.value
+      Nameclub: e.target.value
     });
   }
   onChangeCity(e) {
@@ -53,7 +53,7 @@ import { withRouter } from '../common/with-router';
   // Create Category
   saveclub() {
     var data = {
-      Name: this.state.Name,
+      Nameclub: this.state.Nameclub,
       City: this.state.City,
       Address: this.state.Address,
       Description: this.state.Description
@@ -63,7 +63,7 @@ import { withRouter } from '../common/with-router';
       .then(response => {
         this.setState({
           id: response.data.Clubid,
-          Name: response.data.Name,
+          Nameclub: response.data.Nameclub,
           City:response.data.City,
           Address: response.data.Adress,
           Description: response.data.Description,
@@ -80,7 +80,7 @@ import { withRouter } from '../common/with-router';
   newclub() {
     this.setState({
       id: null,
-      Name: "",
+      Nameclub: "",
       City:"",
       Address: "",
       Description: "",
@@ -107,7 +107,7 @@ import { withRouter } from '../common/with-router';
                 className="form-control"
                 id="Name"
                 required
-                value={this.state.Name}
+                value={this.state.Nameclub}
                 onChange={this.onChangeTitle}
                 name="Name"
               />

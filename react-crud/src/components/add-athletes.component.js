@@ -10,6 +10,7 @@ import { withRouter } from '../common/with-router';
     this.onChangeLastName = this.onChangeLastName.bind(this);
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeYears = this.onChangeYears.bind(this);
+    this.onChangeSex = this.onChangeSex.bind(this);
     this.onChangeWeight = this.onChangeWeight.bind(this);
     this.onChangeHeight = this.onChangeHeight.bind(this);
     this.onChangeCity = this.onChangeCity.bind(this);
@@ -25,6 +26,7 @@ import { withRouter } from '../common/with-router';
       LastName: "",
       FirstName:"",
       Years:null,
+      Sexathletes:null,
       Weight:null,
       Height:null,
       City:"",
@@ -60,6 +62,11 @@ import { withRouter } from '../common/with-router';
   onChangeYears(e) {
     this.setState({
       Years: e.target.value
+    });
+  }
+  onChangeSex(e) {
+    this.setState({
+      Sexathletes: e.target.value
     });
   }
   onChangeWeight(e) {
@@ -102,6 +109,7 @@ import { withRouter } from '../common/with-router';
       LastName: this.state.LastName,
       FirstName:this.state.FirstName,
       Years:this.state.Years,
+      Sexathletes:this.state.Sexathletes,
       Weight:this.state.Weight,
       Height:this.state.Height,
       City:this.state.City,
@@ -118,6 +126,7 @@ import { withRouter } from '../common/with-router';
           LastName: response.data.LastName,
           FirstName:response.data.FirstName,
           Years:response.data.Years,
+          Sexathletes:response.data.Sexathletes,
           Weight:response.data.Weight,
           Height:response.data.Height,
           City:response.data.City,
@@ -140,6 +149,7 @@ import { withRouter } from '../common/with-router';
       LastName: "",
       FirstName:"",
       Years:null,
+      Sexathletes:null,
       Weight:null,
       Height:null,
       City:"",
@@ -197,6 +207,18 @@ import { withRouter } from '../common/with-router';
                 value={this.state.Years}
                 onChange={this.onChangeYears}
                 name="Years"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="Years">Sex :</label>
+              <input
+                type="text"
+                className="form-control"
+                id="Sexathletes"
+                value={this.state.Sexathletes}
+                onChange={this.onChangeSex}
+                name="Sexathletes"
               />
             </div>
 

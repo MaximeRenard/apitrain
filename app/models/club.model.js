@@ -6,7 +6,7 @@ const sql = require("./db.js");
 
 // Club
 const Club = function(club) {
-  this.Name = club.Name;
+  this.Nameclub = club.Nameclub;
   this.City = club.City;
   this.Address = club.Address;
   this.Description = club.Description;

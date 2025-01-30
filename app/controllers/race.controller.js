@@ -14,7 +14,7 @@ exports.create = (req, res) => {
   }
 
   const race = new Race({
-    Name : req.body.Name,
+    Namerace : req.body.Namerace,
     DateRace : req.body.DateRace,
     Distance : req.body.Distance,
     City : req.body.City,

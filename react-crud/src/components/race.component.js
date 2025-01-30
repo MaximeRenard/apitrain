@@ -101,7 +101,7 @@ class RaceList extends Component {
                     onClick={() => this.setActiveRace(race, index)}
                     key={index}
                   >
-	               <p><strong>Race {race.Raceid}: </strong> {race.Name} : {race.Description} </p>
+	               <p><strong>Race {race.Raceid}: </strong> {race.Namerace} : {race.Description} </p>
 	                </li>
                 ))}
             </ul>
@@ -133,7 +133,7 @@ class RaceList extends Component {
                     <label>
                     <strong>Name:</strong>
                     </label>{""}
-                    {currentrace.Name}
+                    {currentrace.Namerace}
                   </div>
                   <div>
                     <label>
