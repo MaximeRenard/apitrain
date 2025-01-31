@@ -106,7 +106,7 @@ class CoachList extends Component {
                     onClick={() => this.setActiveCoach(coach, index)}
                     key={index}
                   >
-	               <p><strong>coach {coach.Coachid}: </strong> {coach.Name_coach} : {coach.Years}: {coach.Clubid} </p>
+	               <p><strong>coach {coach.Coachid}: </strong> {coach.Namecoach} : {coach.Years} years: {coach.Clubid} </p>
 	                </li>
                 ))}
             </ul>
@@ -154,7 +154,7 @@ class CoachList extends Component {
                     <label>
                       <strong>Name:</strong>
                     </label>{" "}
-                    {currentCoach.Name_coach}
+                    {currentCoach.Namecoach}
                   </div>
                   <div>
                     <label>

@@ -8,7 +8,8 @@ Delete TABLE
 # Category
 const tableCategory = `CREATE TABLE IF NOT EXISTS CategoryAthletes( 
         Categoryid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        NameCategory varchar(20) NOT NULL,
+        NameCategory varchar(20) NOT NULL,Vaomen)
+        Sexcategory 
         DescriptionCategory varchar(55) NOT NULL
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;` 
 ## Link : http://127.0.0.1:8080/api/Category/create
@@ -76,7 +77,7 @@ const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
 ## Link : http://127.0.0.1:8080/api/Clubs/create
 # Clubid 1
 {
-        "Name": "E2A",
+        "Nameclub": "E2A",
         "City" : "Angers",
         "Address": "OMS",
         "Description":"Entente Angevine Athletisme"
@@ -84,15 +85,15 @@ const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
 }
 # Clubid 2
 {
-        "Name": "SCO",
+        "Nameclub": "SCO",
         "City" : "Angers",
         "Address": "unknnown",
-        "Description":"SCO Athletisme"
+        "Description":"SCO Angers Athletisme"
     
 }
 # Clubid 3
 {
-        "Name": "ASBA",
+        "Nameclub": "ASBA",
         "City" : "Saint Barthelemy",
         "Address": "unknnown",
         "Description":"Saint Barthelemy d'Anjou"
@@ -100,7 +101,7 @@ const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
 }
 # Clubid 4
 {
-        "Name": "ESHA",
+        "Nameclub": "ESHA",
         "City" : "Segré",
         "Address": "unknnown",
         "Description":"Segré Anjou bleu"
@@ -108,7 +109,7 @@ const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
 }
 # Clubid 5
 {
-        "Name": "CAPS",
+        "Nameclub": "CAPS",
         "City" : "Saumur",
         "Address": "unknnown",
         "Description":"Entente Saumuroise"
@@ -116,7 +117,7 @@ const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
 }
 # Clubid 6
 {
-        "Name": "Cholet Athletisme",
+        "Nameclub": "Cholet Athletisme",
         "City" : "Cholet",
         "Address": "unknnown",
         "Description":"Cholet Athletisme"
@@ -127,7 +128,7 @@ const tableclub = `CREATE TABLE IF NOT EXISTS Clubs(
 # Coach
 const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
         Coachid int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        Name varchar(20) NOT NULL,
+        Namecoach varchar(20) NOT NULL,
         Years int(4) NOT NULL,
         City varchar(50) NOT NULL,
         Description varchar(255),
@@ -138,7 +139,7 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
 ## Link : http://127.0.0.1:8080/api/Coachs/create
 # Coachid 1
 {
-        "Name":"TBCoaching",
+        "Namecoach":"TBCoaching",
         "Years":40,
         "City":"Angers",
         "Description" : "Route",
@@ -147,7 +148,7 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
 }
 # Coachid 2
 {
-        "Name":"MRCoaching",
+        "Namecoach":"MRCoaching",
         "Years":30,
         "City":"Angers",
         "Description" : "Route",
@@ -156,7 +157,7 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
 }
 # Coachid 3
 {
-        "Name":"ALCoaching",
+        "Namecoach":"ALCoaching",
         "Years":30,
         "City":"Angers",
         "Description" : "Route",
@@ -165,7 +166,7 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
 }
 # Coachid 4
 {
-        "Name":"SBCoaching",
+        "Namecoach":"SBCoaching",
         "Years":30,
         "City":"Saint Barthelemy",
         "Description" : "Route",
@@ -174,7 +175,7 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
 }
 # Coachid 5
 {
-        "Name":"SECoaching",
+        "Namecoach":"SECoaching",
         "Years":35,
         "City":"Segré",
         "Description" : "Route",
@@ -183,7 +184,7 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
 }
 # Coachid 6
 {
-        "Name":"SACoaching",
+        "Namecoach":"SACoaching",
         "Years":40,
         "City":"Saumur",
         "Description" : "Route",
@@ -192,7 +193,7 @@ const tableCoach = `CREATE TABLE IF NOT EXISTS Coach(
 }
 # Coachid 7
 {
-        "Name":"COCoaching",
+        "Namecoach":"COCoaching",
         "Years":45,
         "City":"Cholet",
         "Description" : "Route",
@@ -237,28 +238,28 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
 }
 # Athleteid 2
 {
-    "FirstName" : "Speedy",
-    "LastName": "RENARD",
-    "Years": 8,
+    "FirstName" : "Guillaume",
+    "LastName": "BENOU",
+    "Years": 15,
     "Sexathletes":"Men",
-    "Weight":3.5,
-    "Height" : 1.75,
+    "Weight":43.5,
+    "Height" : 1.65,
     "City" : "Angers",
-    "FavoriteDistance" : "10km",
+    "FavoriteDistance" : "Piste",
     "Clubid" : 2,
     "Coachid": 2,
     "Categoryid" :1
 }
 # Athleteid 3
 {
-    "FirstName" : "Clipsy",
-    "LastName": "RENARD",
+    "FirstName" : "Patrice",
+    "LastName": "BERNARD",
     "Sexathletes":"Men",
-    "Years": 18,
+    "Years": 48,
     "Weight":63.5,
-    "Height" : 1.75,
+    "Height" : 1.70,
     "City" : "Angers",
-    "FavoriteDistance" : "10km",
+    "FavoriteDistance" : "21.1km",
     "Clubid" : 2,
     "Coachid": 3,
     "Categoryid" :4
@@ -269,7 +270,7 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
     "LastName": "DURE",
     "Years": 15,
     "Sexathletes":"Men",
-    "Weight":63.5,
+    "Weight":53.5,
     "Height" : 1.65,
     "City" : "Bart",
     "FavoriteDistance" : "5km",
@@ -280,7 +281,7 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
 # Athleteid 5
 {
     "FirstName" : "Laura",
-    "LastName": "DURET",
+    "LastName": "BRUET",
     "Years": 28,
     "Sexathletes":"Woman",
     "Weight":53.5,
@@ -318,11 +319,12 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
     "Clubid" : 6,
     "Coachid": 7,
     "Categoryid" :8
+}
 # Athleteid 8
 ## Doublon double coach different club
 {
     "FirstName" : "Maxime",
-    "LastName": "RENARC",
+    "LastName": "RENARD Doublon",
     "Years": 28,
     "Sexathletes":"Men",
     "Weight":63.5,
@@ -352,7 +354,7 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
 ## Link : POST http://127.0.0.1:8080/api/race/create/
 # Raceid 1 : Semi Cholet
 {
-    "Name" : "Semi de Nuaille",
+  "Namerace" : "Semi de Nuaille",
   "DateRace" : "2025-03-30",
   "Distance" : 21.1,
   "City" : "Cholet",
@@ -361,16 +363,16 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
 }
 # Raceid 2 : 10km Angers
 {
-    "Name" : "Tour de MJ",
+  "Namerace" : "Tour de Montreuil",
   "DateRace" : "2025-05-01",
   "Distance" : 10,
-  "City" : "Montreuil",
+  "City" : "Montreuil Juigne",
   "Description" : "10km Angers",
   "Clubid" : 1
 }
 # Raceid 3 : cross Saumur
 {
-  "Name" : "Cross Dep long",
+  "Namerace" : "Cross Dep long 49",
   "DateRace" : "2025-01-12",
   "Distance" : 8.2,
   "City" : "Saumur",
@@ -379,7 +381,7 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
 }
 # Raceid 4 : cross segre
 {
-  "Name" : "Cross Dep court",
+  "Namerace" : "Cross Dep court 49",
   "DateRace" : "2025-01-12",
   "Distance" :4.1,
   "City" : "Segré",
@@ -388,7 +390,7 @@ const tablerace = `CREATE TABLE IF NOT EXISTS Race(
 }
 # Race id 5 Semi asba
 {
-  "Name" : "Semi Saint Sylvain",
+  "Namerace" : "Semi Saint Sylvain",
   "DateRace" : "2025-03-02",
   "Distance" : 21.1,
   "City" : "Verriere",
@@ -412,7 +414,7 @@ const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace(
 ## Link : POST http://127.0.0.1:8080/api/race/result
 ## View result race http://127.0.0.1:8080/api/race/result/:id
 ## View result Athlete http://127.0.0.1:8080/api/race/result/athlete/:id
-# For athleteid 1 : Maxime
+# For athleteid 1 : 
 {
         "Athleteid":1,
         "Raceid":3,
@@ -437,7 +439,7 @@ const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace(
         "Timerace":"00:17:29"
     
 }
-# For athleteid 2 Speedy
+# For athleteid 2 
 {
         "Athleteid":2,
         "Raceid":3,
@@ -462,7 +464,7 @@ const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace(
         "Timerace":"00:19:29"
     
 }
-# For athleteid 3 Clipŝy
+# For athleteid 3 
 {
         "Athleteid":3,
         "Raceid":3,
@@ -516,7 +518,7 @@ const tableResult = `CREATE TABLE IF NOT EXISTS ResultAthletesRace(
     
 }
 # For athleteid 8
-#  Doublon coach
+#  Doublon coach-athlete
 {
         "Athleteid":8,
         "Raceid":5,

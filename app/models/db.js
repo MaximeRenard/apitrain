@@ -55,7 +55,7 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
         LastName varchar(20) NOT NULL,
         FirstName varchar(20)NOT NULL,
         Years int(4) NOT NULL,
-        Sexathetes VARCHAR(10) NOT NULL,
+        Sexathletes VARCHAR(10) NOT NULL,
         Weight FLOAT(5,2),
         Height FLOAT(4,2),
         City varchar(50) NOT NULL,
@@ -66,7 +66,7 @@ const tableAthlete = `CREATE TABLE IF NOT EXISTS Athletes(
         FOREIGN KEY (Coachid) REFERENCES Coach(Coachid),
         Categoryid int(11) NOT NULL,
         FOREIGN KEY (Categoryid) REFERENCES CategoryAthletes(Categoryid),
-        CONSTRAINT CHK_Athletes CHECK (Sexathetes = 'Men' OR Sexathetes='Woman')
+        CONSTRAINT CHK_Athletes CHECK (Sexathletes = 'Men' OR Sexathletes='Woman')
       
       )ENGINE=InnoDB DEFAULT CHARSET=utf8;`
 
@@ -94,6 +94,16 @@ connection.connect(function(err) {
     console.log("Delete All tables");
   });
 */
+  // Delete 1 table
+  /*
+    const athlete_tables = `DROP TABLE IF EXISTS 
+    ResultAthletesRace,Athletes,Race;`
+    var partreinitialize = athlete_tables;
+    connection.query(partreinitialize, function (err, result) {
+    if (err) throw err;
+    console.log("Delete specific tables");
+  });
+  */
 // Create DB and connection
 
   // Create Table category
